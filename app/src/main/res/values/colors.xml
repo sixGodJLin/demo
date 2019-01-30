@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#358de5</color>
+    <color name="colorPrimaryDark">#358de5</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="backgroundPanel">#fefefe</color>
+    <color name="colorDivider">#F3F3F3</color>
+    <color name="color_selected_color">#358de5</color>
+    <color name="split">#eeeeee</color>
+    <color name="colorText333">#333333</color>
+
+    <color name="ff99c8">#ff99c8</color>
+</resources>

@@ -1,0 +1,29 @@
+package com.example.linj.myapplication;
+
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+
+import com.example.linj.myapplication.view.SwipeView;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+/**
+ * @author JLin
+ */
+public class SwipeActivity extends AppCompatActivity {
+    SwipeView swipeView;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_swipe);
+        swipeView = new SwipeView(getApplicationContext());
+
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        addContentView(swipeView, params);
+    }
+}

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee"
+    android:orientation="vertical"
+    tools:context=".ExpandActivity">
+
+    <!--<com.example.linj.myapplication.view.ExpandableLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--app:content_view="@+id/content"-->
+    <!--app:drawable="@drawable/shape_text_start_rect_primary"-->
+    <!--app:title="主诉"-->
+    <!--app:titleSize="15sp">-->
+
+    <!--<android.support.v7.widget.AppCompatEditText-->
+    <!--android:id="@+id/content"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:background="@android:color/transparent"-->
+    <!--android:hint="123"-->
+    <!--android:inputType="text"-->
+    <!--android:padding="@dimen/px30"-->
+    <!--android:textSize="14sp" />-->
+
+    <!--</com.example.linj.myapplication.view.ExpandableLayout>-->
+
+    <com.example.linj.myapplication.view.ExpandView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        app:expand_content_view="@+id/cl_content"
+        app:expand_head_view="@+id/cl_head">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/cl_head"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px96">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/px32"
+                android:gravity="center_vertical"
+                android:text="其他项目"
+                android:textColor="#333333"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/iv_fold"
+                android:layout_width="@dimen/px36"
+                android:layout_height="@dimen/px36"
+                android:layout_marginEnd="@dimen/px32"
+                android:src="@drawable/ic_fold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/cl_content"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px600"
+            android:background="@color/colorText333" />
+    </com.example.linj.myapplication.view.ExpandView>
+</LinearLayout>

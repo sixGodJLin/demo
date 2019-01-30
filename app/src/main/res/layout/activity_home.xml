@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f8f8f8"
+    android:orientation="vertical"
+    tools:context=".HomeActivity">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/calendar_view"
+                android:layout_width="match_parent"
+                android:layout_height="50sp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:text="@string/calendar_view"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/alarm_demo"
+                android:layout_width="match_parent"
+                android:layout_height="50sp"
+                android:layout_marginTop="4sp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:text="@string/alarm_demo"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/swipe_demo"
+                android:layout_width="match_parent"
+                android:layout_height="50sp"
+                android:layout_marginTop="4sp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:text="@string/swipe_demo"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/draw_demo"
+                android:layout_width="match_parent"
+                android:layout_height="50sp"
+                android:layout_marginTop="4sp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:text="@string/draw_demo"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/schedule_demo"
+                android:layout_width="match_parent"
+                android:layout_height="50sp"
+                android:layout_marginTop="4sp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:text="@string/schedule_demo"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/animate_demo"
+                android:layout_width="match_parent"
+                android:layout_height="50sp"
+                android:layout_marginTop="4sp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:text="@string/animate_demo"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/calendar_event"
+                android:layout_width="match_parent"
+                android:layout_height="50sp"
+                android:layout_marginTop="4sp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:text="@string/calendar_event"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/file_select"
+                android:layout_width="match_parent"
+                android:layout_height="50sp"
+                android:layout_marginTop="4sp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:text="@string/file_select"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/video_demo"
+                android:layout_width="match_parent"
+                android:layout_height="50sp"
+                android:layout_marginTop="4sp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:text="@string/video_demo"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/music_demo"
+                android:layout_width="match_parent"
+                android:layout_height="50sp"
+                android:layout_marginTop="4sp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:text="@string/music_demo"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/view_pager_demo"
+                android:layout_width="match_parent"
+                android:layout_height="50sp"
+                android:layout_marginTop="4sp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:text="@string/view_pager_demo"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/expand_view"
+                android:layout_width="match_parent"
+                android:layout_height="50sp"
+                android:layout_marginTop="4sp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:text="@string/expand_view_demo"
+                android:textSize="20sp" />
+
+
+            <TextView
+                android:id="@+id/dialog_demo"
+                android:layout_width="match_parent"
+                android:layout_height="50sp"
+                android:layout_marginTop="4sp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:text="@string/dialog_demo"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/guide_demo"
+                android:layout_width="match_parent"
+                android:layout_height="50sp"
+                android:layout_marginTop="4sp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:text="@string/guide_demo"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/efficacy_demo"
+                android:layout_width="match_parent"
+                android:layout_height="50sp"
+                android:layout_marginTop="4sp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:text="@string/efficacy_demo"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tcp_demo"
+                android:layout_width="match_parent"
+                android:layout_height="50sp"
+                android:layout_marginTop="4sp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:text="@string/tcp_demo"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>

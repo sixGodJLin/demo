@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee"
+    android:orientation="vertical"
+    tools:context=".CalendarActivity">
+
+
+    <TextView
+        android:id="@+id/add_calendar_event"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px92"
+        android:background="#fff"
+        android:gravity="center"
+        android:text="add"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/delete_calendar_event"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px92"
+        android:layout_marginTop="@dimen/px16"
+        android:background="#fff"
+        android:gravity="center"
+        android:text="delete"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/query_calendar_event"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px92"
+        android:layout_marginTop="@dimen/px16"
+        android:background="#fff"
+        android:gravity="center"
+        android:text="query"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/add_account"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px92"
+        android:layout_marginTop="@dimen/px16"
+        android:background="#fff"
+        android:gravity="center"
+        android:text="add account"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/get_account_id"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px92"
+        android:layout_marginTop="@dimen/px16"
+        android:background="#fff"
+        android:gravity="center"
+        android:text="get account id"
+        android:textSize="20sp" />
+</LinearLayout>

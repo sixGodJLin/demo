@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CalendarView">
+        <attr name="calendar_padding" format="dimension" /><!--日历内部左右padding-->
+
+        <attr name="week_background" format="color" /><!--周背景-->
+        <attr name="week_line_background" format="color" /><!--线条颜色-->
+        <attr name="week_text_color" format="color" /><!--周栏字体颜色-->
+
+        <attr name="month_view" format="string" /><!--完全自定义月视图-->
+        <attr name="week_view" format="string" /> <!--完全自定义周视图-->
+        <attr name="scheme_text" format="string" />
+        <attr name="calendar_height" format="dimension" />
+        <attr name="scheme_month_text_color" format="color" />
+
+        <!--日期范围-->
+        <attr name="min_year" format="integer" />
+        <attr name="max_year" format="integer" />
+        <attr name="min_year_month" format="integer" />
+        <attr name="max_year_month" format="integer" />
+        <attr name="min_year_day" format="integer" />
+        <attr name="max_year_day" format="integer" />
+
+        <!--月视图是否可滚动-->
+        <attr name="month_view_scrollable" format="boolean" />
+        <!--周视图是否可滚动-->
+        <attr name="week_view_scrollable" format="boolean" />
+        <!--是否显示农历、节日-->
+        <attr name="is_show_lunar" format="boolean" />
+
+        <!-- 自定义周起始 -->
+        <attr name="week_start_with">
+            <enum name="sun" value="1" />
+            <enum name="mon" value="2" />
+            <enum name="sat" value="7" />
+        </attr>
+    </declare-styleable>
+
+
+    <declare-styleable name="CalendarLayout">
+        <attr name="default_status">
+            <enum name="expand" value="0" />
+            <enum name="shrink" value="1" />
+        </attr>
+
+        <attr name="calendar_content_view_id" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="ExpandableLayout">
+        <attr name="titleColor" format="color" />
+        <attr name="titleSize" format="dimension" />
+        <attr name="arrowIcon" format="reference" />
+        <attr name="title" format="string" />
+        <attr name="drawable" format="reference" />
+        <attr name="content_view" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="ExpandView">
+        <attr name="expand_head_view" format="integer" />
+        <attr name="expand_content_view" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="ExpandableRadioLayout">
+        <attr name="text_color" format="color" />
+        <attr name="flag_title" format="string" />
+        <attr name="hint" format="string" />
+        <attr name="negative" format="string" />
+        <attr name="positive" format="string" />
+        <attr name="show_content" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="MyRadioButton">
+        <attr name="drawableLeft" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="EfficacyViewStyle">
+        <attr name="efficacy_bar_color" format="integer" />
+        <attr name="efficacy_unit" format="string" />
+        <attr name="efficacy_title" format="string" />
+        <attr name="efficacy_icon_id" format="reference" />
+    </declare-styleable>
+</resources>
