@@ -10,13 +10,13 @@
         android:id="@+id/iv_icon"
         android:layout_width="@dimen/px36"
         android:layout_height="@dimen/px36"
+        android:layout_marginEnd="@dimen/px24"
         android:background="@drawable/img_seizuretype_overall" />
 
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/px24"
         android:layout_weight="1"
         android:text="title"
         android:textColor="@color/colorText333"

@@ -23,9 +23,14 @@ import com.example.linj.myapplication.R;
  */
 public class EfficacyView extends LinearLayout {
     /**
-     * y轴指标数据线条
+     * x轴 横坐标据线条
      */
-    private Paint linePaint = new Paint();
+    private Paint lineXPaint = new Paint();
+
+    /**
+     * y轴 指标数据线条
+     */
+    private Paint lineYPaint = new Paint();
 
     /**
      * title iconId
@@ -120,9 +125,13 @@ public class EfficacyView extends LinearLayout {
             ta.recycle();
         }
 
-        linePaint.setStyle(Paint.Style.FILL_AND_STROKE);
-        linePaint.setColor(Color.parseColor("#d9e4f2"));
-        linePaint.setStrokeWidth(2);
+        lineXPaint.setStyle(Paint.Style.FILL_AND_STROKE);
+        lineXPaint.setColor(Color.parseColor("#d9e4f2"));
+        lineXPaint.setStrokeWidth(2);
+
+        lineYPaint.setStyle(Paint.Style.FILL_AND_STROKE);
+        lineYPaint.setColor(Color.parseColor("#66d9e4f2"));
+        lineYPaint.setStrokeWidth(2);
 
         barPaint.setStyle(Paint.Style.FILL_AND_STROKE);
         barPaint.setColor(barColorId);
@@ -150,7 +159,12 @@ public class EfficacyView extends LinearLayout {
         TextView tvTitle = view.findViewById(R.id.tv_title);
         TextView tvUnit = view.findViewById(R.id.tv_unit);
 
-        ivIcon.setBackground(icon);
+        if (icon != null) {
+            ivIcon.setVisibility(VISIBLE);
+            ivIcon.setBackground(icon);
+        } else {
+            ivIcon.setVisibility(GONE);
+        }
         tvTitle.setText(title);
         tvUnit.setText("（" + unit + "）");
 
@@ -185,6 +199,13 @@ public class EfficacyView extends LinearLayout {
         canvas.drawText(String.valueOf(maxValue), startX, xAxisHeight - (3 * spacingY) + fontMetrics.bottom, yAxisTextPaint);
         canvas.drawText(String.valueOf((maxValue / 3) * 2), startX, xAxisHeight - (2 * spacingY) + fontMetrics.bottom, yAxisTextPaint);
         canvas.drawText(String.valueOf(maxValue / 3), startX, xAxisHeight - spacingY + fontMetrics.bottom, yAxisTextPaint);
+
+        canvas.drawLine((int) getContext().getResources().getDimension(R.dimen.px66), xAxisHeight - (3 * spacingY),
+                mWidth - (int) getContext().getResources().getDimension(R.dimen.px32), xAxisHeight - (3 * spacingY), lineYPaint);
+        canvas.drawLine((int) getContext().getResources().getDimension(R.dimen.px66), xAxisHeight - (2 * spacingY),
+                mWidth - (int) getContext().getResources().getDimension(R.dimen.px32), xAxisHeight - (2 * spacingY), lineYPaint);
+        canvas.drawLine((int) getContext().getResources().getDimension(R.dimen.px66), xAxisHeight - spacingY,
+                mWidth - (int) getContext().getResources().getDimension(R.dimen.px32), xAxisHeight - spacingY, lineYPaint);
     }
 
     /**
@@ -197,7 +218,7 @@ public class EfficacyView extends LinearLayout {
         // 条状图单位高度
         float perHeight = (float) mHeight / maxValue;
 
-        canvas.drawLine(startX, xAxisHeight, mWidth - (int) getContext().getResources().getDimension(R.dimen.px32), xAxisHeight, linePaint);
+        canvas.drawLine(startX, xAxisHeight, mWidth - (int) getContext().getResources().getDimension(R.dimen.px32), xAxisHeight, lineXPaint);
 
         // 柱状图宽度
         float columViewWidth = mWidth - (int) getContext().getResources().getDimension(R.dimen.px98);
