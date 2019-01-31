@@ -1,4 +1,4 @@
-package com.example.linj.myapplication;
+package com.example.linj.myapplication.widget;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -6,6 +6,8 @@ import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.RadioButton;
+
+import com.example.linj.myapplication.R;
 
 /**
  * @author JLin

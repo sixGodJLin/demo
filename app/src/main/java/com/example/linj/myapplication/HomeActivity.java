@@ -9,6 +9,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.example.linj.myapplication.tcp.TcpDemoActivity;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;

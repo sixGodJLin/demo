@@ -63,10 +63,19 @@
 
         </android.support.constraint.ConstraintLayout>
 
-        <android.support.constraint.ConstraintLayout
+        <LinearLayout
             android:id="@+id/cl_content"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/px600"
-            android:background="@color/colorText333" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.example.linj.myapplication.widget.RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px96"
+                app:button_text_1="清醒"
+                app:button_text_2="嗜睡"
+                app:radio_group_title="意识" />
+
+        </LinearLayout>
     </com.example.linj.myapplication.view.ExpandView>
 </LinearLayout>

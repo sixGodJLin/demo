@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:paddingEnd="@dimen/px32"
+    android:paddingStart="@dimen/px32">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        tools:text="title" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="end|center_vertical"
+        android:orientation="horizontal">
+
+        <com.example.linj.myapplication.widget.MyRadioButton
+            android:id="@+id/rbt_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/px40"
+            android:button="@null"
+            android:drawablePadding="@dimen/px16"
+            android:padding="@dimen/px12"
+            android:textColor="#666666"
+            android:textSize="14sp"
+            android:visibility="gone"
+            app:drawableLeft="@drawable/selector_radiobutton"
+            tools:text="1" />
+
+        <com.example.linj.myapplication.widget.MyRadioButton
+            android:id="@+id/rbt_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/px40"
+            android:button="@null"
+            android:drawablePadding="@dimen/px16"
+            android:padding="@dimen/px12"
+            android:textColor="#666666"
+            android:textSize="14sp"
+            android:visibility="gone"
+            app:drawableLeft="@drawable/selector_radiobutton"
+            tools:text="2" />
+
+        <com.example.linj.myapplication.widget.MyRadioButton
+            android:id="@+id/rbt_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/px40"
+            android:button="@null"
+            android:drawablePadding="@dimen/px16"
+            android:padding="@dimen/px12"
+            android:textColor="#666666"
+            android:textSize="14sp"
+            android:visibility="gone"
+            app:drawableLeft="@drawable/selector_radiobutton"
+            tools:text="2" />
+
+        <com.example.linj.myapplication.widget.MyRadioButton
+            android:id="@+id/rbt_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/px40"
+            android:button="@null"
+            android:drawablePadding="@dimen/px16"
+            android:padding="@dimen/px12"
+            android:textColor="#666666"
+            android:textSize="14sp"
+            android:visibility="gone"
+            app:drawableLeft="@drawable/selector_radiobutton"
+            tools:text="3" />
+    </RadioGroup>
+
+</LinearLayout>

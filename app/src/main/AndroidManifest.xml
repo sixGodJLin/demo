@@ -47,7 +47,7 @@
         <activity android:name=".DialogDemoActivity" />
         <activity android:name=".GuideActivity" />
         <activity android:name=".chartdemo.ChartActivity" />
-        <activity android:name=".TcpDemoActivity" />
+        <activity android:name=".tcp.TcpDemoActivity" />
         <activity android:name=".chartdemo.BarChartActivity"></activity>
     </application>
 

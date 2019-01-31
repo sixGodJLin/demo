@@ -72,4 +72,12 @@
     <declare-styleable name="MyRadioButton">
         <attr name="drawableLeft" format="reference" />
     </declare-styleable>
+
+    <declare-styleable name="RadioGroup">
+        <attr name="radio_group_title" format="string" />
+        <attr name="button_text_1" format="string" />
+        <attr name="button_text_2" format="string" />
+        <attr name="button_text_3" format="string" />
+        <attr name="button_text_4" format="string" />
+    </declare-styleable>
 </resources>

@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/px500" />
 
-    <com.example.linj.myapplication.MyRadioButton
+    <com.example.linj.myapplication.widget.MyRadioButton
         android:id="@+id/remind_period_rb1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
