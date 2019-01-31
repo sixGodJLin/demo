@@ -72,11 +72,4 @@
     <declare-styleable name="MyRadioButton">
         <attr name="drawableLeft" format="reference" />
     </declare-styleable>
-
-    <declare-styleable name="EfficacyViewStyle">
-        <attr name="efficacy_bar_color" format="integer" />
-        <attr name="efficacy_unit" format="string" />
-        <attr name="efficacy_title" format="string" />
-        <attr name="efficacy_icon_id" format="reference" />
-    </declare-styleable>
 </resources>

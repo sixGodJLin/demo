@@ -46,8 +46,9 @@
         <activity android:name=".ExpandActivity" />
         <activity android:name=".DialogDemoActivity" />
         <activity android:name=".GuideActivity" />
-        <activity android:name=".EfficacyActivity" />
-        <activity android:name=".TcpDemoActivity"></activity>
+        <activity android:name=".chartdemo.ChartActivity" />
+        <activity android:name=".TcpDemoActivity" />
+        <activity android:name=".chartdemo.BarChartActivity"></activity>
     </application>
 
 </manifest>

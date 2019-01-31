@@ -158,16 +158,6 @@
                 android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/efficacy_demo"
-                android:layout_width="match_parent"
-                android:layout_height="50sp"
-                android:layout_marginTop="4sp"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="@string/efficacy_demo"
-                android:textSize="20sp" />
-
-            <TextView
                 android:id="@+id/tcp_demo"
                 android:layout_width="match_parent"
                 android:layout_height="50sp"

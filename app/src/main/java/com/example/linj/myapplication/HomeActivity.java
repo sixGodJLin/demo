@@ -1,7 +1,5 @@
 package com.example.linj.myapplication;
 
-import android.app.DatePickerDialog;
-import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -10,34 +8,19 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.DatePicker;
-import android.widget.TimePicker;
-import android.widget.Toast;
-
-import com.example.linj.myapplication.utils.BaseResponse;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import es.voghdev.pdfviewpager.library.RemotePDFViewPager;
 import io.reactivex.Emitter;
-import io.reactivex.Observable;
-import io.reactivex.ObservableOnSubscribe;
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import okio.Buffer;
@@ -79,7 +62,7 @@ public class HomeActivity extends AppCompatActivity {
     @OnClick({R.id.calendar_view, R.id.alarm_demo, R.id.swipe_demo, R.id.schedule_demo,
             R.id.animate_demo, R.id.draw_demo, R.id.calendar_event, R.id.file_select,
             R.id.video_demo, R.id.music_demo, R.id.view_pager_demo, R.id.expand_view,
-            R.id.dialog_demo, R.id.guide_demo, R.id.efficacy_demo, R.id.tcp_demo})
+            R.id.dialog_demo, R.id.guide_demo, R.id.tcp_demo})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.calendar_view:
@@ -146,9 +129,6 @@ public class HomeActivity extends AppCompatActivity {
                 break;
             case R.id.guide_demo:
                 startActivity(new Intent(this, GuideActivity.class));
-                break;
-            case R.id.efficacy_demo:
-                startActivity(new Intent(this, EfficacyActivity.class));
                 break;
             case R.id.tcp_demo:
                 startActivity(new Intent(this, TcpDemoActivity.class));

@@ -136,4 +136,6 @@
     <string name="text_none">无</string>
     <string name="efficacy_demo">efficacy demo</string>
     <string name="tcp_demo">tcp demo</string>
+    <string name="bar_chart">bar chart</string>
+    <string name="line_chart">line chart</string>
 </resources>
