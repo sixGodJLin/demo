@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.linj.myapplication">
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -15,7 +16,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".MainActivity" />
         <activity android:name=".HomeActivity">
             <intent-filter>
@@ -39,16 +41,14 @@
         <activity android:name=".AnimateActivity" />
         <activity android:name=".DrawActivity" />
         <activity android:name=".CalendarActivity" />
-        <activity android:name=".VideoActivity" />
-        <activity android:name=".MusicActivity" />
+        <activity android:name=".VideoActivity" android:screenOrientation="portrait" />
+        <activity android:name=".MusicActivity" android:screenOrientation="portrait" />
         <activity android:name=".PDFViewActivity" />
         <activity android:name=".ViewPagerActivity" />
         <activity android:name=".ExpandActivity" />
         <activity android:name=".DialogDemoActivity" />
         <activity android:name=".GuideActivity" />
-        <activity android:name=".chartdemo.ChartActivity" />
         <activity android:name=".tcp.TcpDemoActivity" />
-        <activity android:name=".chartdemo.BarChartActivity"></activity>
     </application>
 
 </manifest>

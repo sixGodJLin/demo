@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".VideoActivity">
 
-    <VideoView
-        android:id="@+id/video_view"
+    <SurfaceView
+        android:id="@+id/surfaceView_main"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/px500" />
+        android:layout_height="@dimen/px500"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <com.example.linj.myapplication.widget.MyRadioButton
-        android:id="@+id/remind_period_rb1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:button="@null"
-        android:drawablePadding="@dimen/px16"
-        android:text="药单周期"
-        android:textSize="14sp"
-        app:drawableLeft="@drawable/normal" />
-
-</LinearLayout>
+    <ImageView
+        android:id="@+id/imageView_main_play"
+        android:layout_width="@dimen/px96"
+        android:layout_height="@dimen/px96"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/icon_start"
+        app:layout_constraintBottom_toBottomOf="@id/surfaceView_main"
+        app:layout_constraintEnd_toEndOf="@id/surfaceView_main"
+        app:layout_constraintStart_toStartOf="@id/surfaceView_main"
+        app:layout_constraintTop_toTopOf="@id/surfaceView_main" />
+</android.support.constraint.ConstraintLayout>

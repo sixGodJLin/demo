@@ -6,9 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".MusicActivity">
 
-    <com.example.linj.myapplication.view.MyView2
-        android:id="@+id/my_view2"
+    <TextView
+        android:id="@+id/text"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/button"
+        android:textSize="30sp" />
 
 </android.support.constraint.ConstraintLayout>
