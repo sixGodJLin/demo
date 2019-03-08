@@ -1,6 +1,5 @@
 package com.example.linj.myapplication;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;

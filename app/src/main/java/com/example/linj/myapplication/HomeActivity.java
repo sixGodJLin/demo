@@ -9,6 +9,9 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.example.linj.myapplication.alarm.AlarmActivity;
+import com.example.linj.myapplication.recycler.RecyclerActivity;
+import com.example.linj.myapplication.service.ServiceActivity;
 import com.example.linj.myapplication.tcp.TcpDemoActivity;
 
 import java.io.File;
@@ -61,14 +64,17 @@ public class HomeActivity extends AppCompatActivity {
         mDay = c.get(Calendar.DAY_OF_MONTH);
     }
 
-    @OnClick({R.id.calendar_view, R.id.alarm_demo, R.id.swipe_demo, R.id.schedule_demo,
+    @OnClick({R.id.calendar_view, R.id.service_demo, R.id.alarm_demo, R.id.swipe_demo, R.id.schedule_demo,
             R.id.animate_demo, R.id.draw_demo, R.id.calendar_event, R.id.file_select,
             R.id.video_demo, R.id.music_demo, R.id.view_pager_demo, R.id.expand_view,
-            R.id.dialog_demo, R.id.guide_demo, R.id.tcp_demo})
+            R.id.dialog_demo, R.id.guide_demo, R.id.tcp_demo, R.id.recycler_demo})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.calendar_view:
                 startActivity(new Intent(this, MainActivity.class));
+                break;
+            case R.id.service_demo:
+                startActivity(new Intent(this, ServiceActivity.class));
                 break;
             case R.id.alarm_demo:
                 startActivity(new Intent(this, AlarmActivity.class));
@@ -135,6 +141,8 @@ public class HomeActivity extends AppCompatActivity {
             case R.id.tcp_demo:
                 startActivity(new Intent(this, TcpDemoActivity.class));
                 break;
+            case R.id.recycler_demo:
+                startActivity(new Intent(this, RecyclerActivity.class));
             default:
                 break;
         }

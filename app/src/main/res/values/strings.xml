@@ -1,7 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">My Application</string>
     <string name="calendar_view">calendar view</string>
-    <string name="alarm_demo">alarm_demo</string>
+    <string name="service_demo">service demo</string>
+    <string name="alarm_demo">alarm_demo</string>service_demo
     <string name="swipe_demo">swipe demo</string>
     <string name="schedule_demo">schedule demo</string>
     <string name="animate_demo">animate demo</string>
@@ -138,4 +139,5 @@
     <string name="tcp_demo">tcp demo</string>
     <string name="bar_chart">bar chart</string>
     <string name="line_chart">line chart</string>
+    <string name="recycler_demo">recycler demo</string>
 </resources>

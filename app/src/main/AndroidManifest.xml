@@ -18,6 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".recycler.RecyclerActivity"></activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".HomeActivity">
             <intent-filter>
@@ -26,7 +27,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AlarmActivity" />
+        <activity android:name=".alarm.AlarmActivity" />
         <activity android:name=".SwipeActivity" />
         <activity android:name=".ScheduleActivity" />
 
@@ -41,14 +42,23 @@
         <activity android:name=".AnimateActivity" />
         <activity android:name=".DrawActivity" />
         <activity android:name=".CalendarActivity" />
-        <activity android:name=".VideoActivity" android:screenOrientation="portrait" />
-        <activity android:name=".MusicActivity" android:screenOrientation="portrait" />
+        <activity
+            android:name=".VideoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MusicActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".PDFViewActivity" />
         <activity android:name=".ViewPagerActivity" />
         <activity android:name=".ExpandActivity" />
         <activity android:name=".DialogDemoActivity" />
         <activity android:name=".GuideActivity" />
         <activity android:name=".tcp.TcpDemoActivity" />
+        <activity android:name=".service.ServiceActivity" />
+
+        <service android:name=".service.MyService1" />
+        <service android:name=".service.MyService2" />
+        <service android:name=".service.ForegroundService" />
     </application>
 
 </manifest>

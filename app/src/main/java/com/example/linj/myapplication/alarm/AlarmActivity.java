@@ -1,10 +1,11 @@
-package com.example.linj.myapplication;
+package com.example.linj.myapplication.alarm;
 
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.example.linj.myapplication.R;
 import com.example.linj.myapplication.alarm.AlarmReceiver;
 
 
