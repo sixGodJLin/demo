@@ -18,7 +18,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".recycler.RecyclerActivity"></activity>
+        <activity android:name=".broadcast.BroadCastActivity" />
+        <activity android:name=".recycler.RecyclerActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".HomeActivity">
             <intent-filter>
@@ -36,6 +37,11 @@
         <receiver android:name=".alarm.AlarmReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".broadcast.BroadCast">
+            <intent-filter>
+                <action android:name="com.JLin.broadcast" />
             </intent-filter>
         </receiver>
 
