@@ -1,9 +1,11 @@
 package com.example.linj.myapplication;
 
+import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.transition.Explode;
 import android.view.View;
 import android.widget.TextView;
 
@@ -31,10 +33,13 @@ public class MainActivity extends AppCompatActivity implements
     private RecyclerView recyclerView;
     private StringAdapter adapter;
 
+    @SuppressLint("NewApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getWindow().setEnterTransition(new Explode().setDuration(2000));
+        getWindow().setExitTransition(new Explode().setDuration(2000));
 
         initView();
     }
@@ -88,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements
                 break;
             case R.id.next_month:
 //                calendarView.scrollToNext();
-                System.out.println("MainActivity " + "onClick " + "----getTranslationY: " + recyclerView.computeVerticalScrollOffset()  );
+                System.out.println("MainActivity " + "onClick " + "----getTranslationY: " + recyclerView.computeVerticalScrollOffset());
                 break;
             default:
                 break;

@@ -1,5 +1,7 @@
 package com.example.linj.myapplication;
 
+import android.annotation.SuppressLint;
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -64,6 +66,7 @@ public class HomeActivity extends AppCompatActivity {
         mDay = c.get(Calendar.DAY_OF_MONTH);
     }
 
+    @SuppressLint("NewApi")
     @OnClick({R.id.calendar_view, R.id.service_demo, R.id.alarm_demo, R.id.swipe_demo, R.id.schedule_demo,
             R.id.animate_demo, R.id.draw_demo, R.id.calendar_event, R.id.file_select,
             R.id.video_demo, R.id.music_demo, R.id.view_pager_demo, R.id.expand_view,
@@ -71,7 +74,7 @@ public class HomeActivity extends AppCompatActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.calendar_view:
-                startActivity(new Intent(this, MainActivity.class));
+                    startActivity(new Intent(this, MainActivity.class), ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
                 break;
             case R.id.service_demo:
                 startActivity(new Intent(this, ServiceActivity.class));
