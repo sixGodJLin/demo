@@ -1,5 +1,6 @@
 package com.example.linj.myapplication;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.ViewGroup;
@@ -13,7 +14,7 @@ import butterknife.ButterKnife;
 /**
  * @author JLin
  */
-public class SwipeActivity extends AppCompatActivity {
+public class SwipeActivity extends Activity {
     SwipeView swipeView;
 
 

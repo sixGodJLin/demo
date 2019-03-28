@@ -1,7 +1,7 @@
 package com.example.linj.myapplication.recycler;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -17,7 +17,7 @@ import butterknife.ButterKnife;
  * @author JLin
  * @date 2019/3/8
  */
-public class RecyclerActivity extends AppCompatActivity {
+public class RecyclerActivity extends Activity {
 
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;

@@ -1,11 +1,8 @@
 package com.example.linj.myapplication.service;
 
-import android.content.ComponentName;
+import android.app.Activity;
 import android.content.Intent;
-import android.content.ServiceConnection;
 import android.os.Bundle;
-import android.os.IBinder;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.example.linj.myapplication.R;
@@ -16,7 +13,7 @@ import butterknife.OnClick;
 /**
  * @author JLin
  */
-public class ServiceActivity extends AppCompatActivity {
+public class ServiceActivity extends Activity {
     Intent intent;
 
     @Override

@@ -1,5 +1,6 @@
 package com.example.linj.myapplication;
 
+import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -13,7 +14,7 @@ import butterknife.OnClick;
 /**
  * @author JLin
  */
-public class MusicActivity extends AppCompatActivity {
+public class MusicActivity extends Activity {
 
     @BindView(R.id.text)
     TextView text;

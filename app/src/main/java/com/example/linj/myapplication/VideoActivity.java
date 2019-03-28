@@ -1,6 +1,7 @@
 package com.example.linj.myapplication;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -32,7 +33,7 @@ import java.util.TimerTask;
 /**
  * @author JLinX
  */
-public class VideoActivity extends AppCompatActivity {
+public class VideoActivity extends Activity {
     private final static String TAG = "MainActivity";
     private SurfaceView surfaceView;
     private SurfaceHolder surfaceHolder;

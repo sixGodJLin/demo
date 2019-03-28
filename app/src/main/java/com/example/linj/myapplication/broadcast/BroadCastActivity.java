@@ -1,17 +1,15 @@
 package com.example.linj.myapplication.broadcast;
 
-import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.IntentFilter;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.transition.Explode;
 
 import com.example.linj.myapplication.R;
 
 /**
  * @author JLin
  */
-public class BroadCastActivity extends AppCompatActivity {
+public class BroadCastActivity extends Activity {
     BroadCast broadCast;
 
     @Override

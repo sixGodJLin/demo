@@ -1,5 +1,6 @@
 package com.example.linj.myapplication;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -9,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author JLin
  */
-public class ScheduleActivity extends AppCompatActivity {
+public class ScheduleActivity extends Activity {
     ScheduledThreadPoolExecutor executor;
     int i = 0;
 

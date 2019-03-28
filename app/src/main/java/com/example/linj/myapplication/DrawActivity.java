@@ -1,12 +1,10 @@
 package com.example.linj.myapplication;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 
 import com.example.linj.myapplication.view.MyView;
 
-import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.Random;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -14,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author JLin
  */
-public class DrawActivity extends AppCompatActivity {
+public class DrawActivity extends Activity {
     private MyView myView1;
 
     ScheduledThreadPoolExecutor scheduledThreadPoolExecutor;

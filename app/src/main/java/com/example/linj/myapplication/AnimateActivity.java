@@ -1,7 +1,7 @@
 package com.example.linj.myapplication;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -20,7 +20,7 @@ import butterknife.OnClick;
 /**
  * @author JLin
  */
-public class AnimateActivity extends AppCompatActivity {
+public class AnimateActivity extends Activity {
     private int mode;
 
     @BindView(R.id.rv_list)

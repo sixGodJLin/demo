@@ -1,5 +1,6 @@
 package com.example.linj.myapplication;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.view.ViewPager;
@@ -13,7 +14,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class ViewPagerActivity extends AppCompatActivity {
+public class ViewPagerActivity extends Activity {
 
     @BindView(R.id.view_pager_view)
     ViewPager viewPagerView;

@@ -186,6 +186,16 @@
                 android:gravity="center"
                 android:text="@string/recycler_demo"
                 android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/camera_demo"
+                android:layout_width="match_parent"
+                android:layout_height="50sp"
+                android:layout_marginTop="4sp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:text="@string/camera_demo"
+                android:textSize="20sp" />
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 </LinearLayout>

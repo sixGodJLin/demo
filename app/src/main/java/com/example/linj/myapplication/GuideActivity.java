@@ -2,6 +2,7 @@ package com.example.linj.myapplication;
 
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -21,7 +22,7 @@ import butterknife.ButterKnife;
 /**
  * @author JLin
  */
-public class GuideActivity extends AppCompatActivity {
+public class GuideActivity extends Activity {
 
     @BindView(R.id.viewPager)
     ViewPager viewPager;

@@ -1,5 +1,6 @@
 package com.example.linj.myapplication;
 
+import android.app.Activity;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,7 +13,7 @@ import es.voghdev.pdfviewpager.library.RemotePDFViewPager;
 import es.voghdev.pdfviewpager.library.adapter.PDFPagerAdapter;
 import es.voghdev.pdfviewpager.library.remote.DownloadFile;
 
-public class PDFViewActivity extends AppCompatActivity implements DownloadFile.Listener {
+public class PDFViewActivity extends Activity implements DownloadFile.Listener {
 
     private RelativeLayout pdf_root;
     private ProgressBar pb_bar;

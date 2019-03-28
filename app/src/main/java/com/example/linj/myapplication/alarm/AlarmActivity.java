@@ -1,18 +1,17 @@
 package com.example.linj.myapplication.alarm;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.linj.myapplication.R;
-import com.example.linj.myapplication.alarm.AlarmReceiver;
 
 
 /**
  * @author JLin
  */
-public class AlarmActivity extends AppCompatActivity {
+public class AlarmActivity extends Activity {
     private AlarmReceiver alarmReceiver;
 
     @Override

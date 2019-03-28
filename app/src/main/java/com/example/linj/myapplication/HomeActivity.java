@@ -1,6 +1,7 @@
 package com.example.linj.myapplication;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.net.Uri;
@@ -8,7 +9,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.example.linj.myapplication.alarm.AlarmActivity;
@@ -47,7 +47,7 @@ import retrofit2.http.PartMap;
 /**
  * @author JLin
  */
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends Activity {
     static String path = Environment.getExternalStorageDirectory().getPath();
     int mYear;
     int mMonth;
@@ -70,11 +70,12 @@ public class HomeActivity extends AppCompatActivity {
     @OnClick({R.id.calendar_view, R.id.service_demo, R.id.alarm_demo, R.id.swipe_demo, R.id.schedule_demo,
             R.id.animate_demo, R.id.draw_demo, R.id.calendar_event, R.id.file_select,
             R.id.video_demo, R.id.music_demo, R.id.view_pager_demo, R.id.expand_view,
-            R.id.dialog_demo, R.id.guide_demo, R.id.tcp_demo, R.id.recycler_demo})
+            R.id.dialog_demo, R.id.guide_demo, R.id.tcp_demo, R.id.recycler_demo,
+            R.id.camera_demo})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.calendar_view:
-                    startActivity(new Intent(this, MainActivity.class), ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
+                startActivity(new Intent(this, MainActivity.class), ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
                 break;
             case R.id.service_demo:
                 startActivity(new Intent(this, ServiceActivity.class));
@@ -146,6 +147,9 @@ public class HomeActivity extends AppCompatActivity {
                 break;
             case R.id.recycler_demo:
                 startActivity(new Intent(this, RecyclerActivity.class));
+            case R.id.camera_demo:
+                startActivity(new Intent(this, CameraActivity.class));
+                break;
             default:
                 break;
         }

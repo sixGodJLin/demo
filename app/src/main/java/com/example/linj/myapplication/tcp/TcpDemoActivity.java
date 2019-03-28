@@ -1,12 +1,12 @@
 package com.example.linj.myapplication.tcp;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -23,7 +23,7 @@ import java.util.concurrent.Executors;
 /**
  * @author JLin
  */
-public class TcpDemoActivity extends AppCompatActivity {
+public class TcpDemoActivity extends Activity {
     private String TAG = "FuncTcpClient";
     @SuppressLint("StaticFieldLeak")
     public static Context context;
