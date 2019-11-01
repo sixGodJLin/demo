@@ -53,7 +53,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemViewType(int position) {
-        return position % 2 == 0 ? TYPE_HEADER : super.getItemViewType(position);
+        return "0".equals(list.get(position)) ? TYPE_HEADER : super.getItemViewType(position);
     }
 
     class ReceiveMsg extends RecyclerView.ViewHolder {

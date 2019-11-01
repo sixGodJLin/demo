@@ -14,6 +14,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.linj.myapplication.utils.CommonUtils;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -63,13 +65,20 @@ public class CameraActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
             if (requestCode == TAKE_PHOTO) {
-                if (data != null) {
-                    try {
-                        FileInputStream fis = new FileInputStream(picPath);
-                        Bitmap bitmap = BitmapFactory.decodeStream(fis);//生成原图
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
+                try {
+                    FileInputStream fis = new FileInputStream(picPath);
+                    Bitmap bitmap = BitmapFactory.decodeStream(fis);//生成原图
+                    String img_Address = CommonUtils.saveMyBitmap(
+                            getApplicationContext(),
+                            CommonUtils.compressImage(CommonUtils.comp(bitmap)),
+                            CommonUtils.Time());
+                    File file = new File(picPath);
+                    if (file.exists()) {
+                        file.delete();
                     }
+                    System.out.println("CameraActivity:" + "onActivityResult" + "----" + img_Address);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
                 }
             }
         }

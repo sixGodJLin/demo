@@ -28,16 +28,30 @@ public class RecyclerActivity extends Activity {
         setContentView(R.layout.activity_recycler);
         ButterKnife.bind(this);
 
-        List<String> strings = new ArrayList<>();
-        strings.add("徐泽小哥哥");
-        strings.add("去死吧");
-        strings.add("不要嘛！！");
-        strings.add("去死吧");
-        strings.add("亲亲亲呢！");
-        strings.add("嗨呀！");
+        List<String> string = new ArrayList<>();
+        string.add("1");
+        string.add("1");
+        string.add("1");
+        string.add("2");
+        string.add("2");
+        string.add("3");
+        string.add("4");
+        string.add("4");
 
+        String value = "0";
+
+        List<String> list = new ArrayList<>();
+        for (String s : string) {
+            if (!value.equals(s)) {
+                list.add("0");
+            }
+            list.add(s);
+            value = s;
+        }
+
+        System.out.println("RecyclerActivity:" + "onCreate" + "----" + list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        RecyclerAdapter adapter = new RecyclerAdapter(this, strings);
+        RecyclerAdapter adapter = new RecyclerAdapter(this, list);
         recyclerView.setAdapter(adapter);
     }
 }

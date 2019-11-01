@@ -12,4 +12,12 @@
         <item name="android:windowEnterAnimation">@anim/grow_from_bottom</item>
         <item name="android:windowExitAnimation">@anim/shrink_from_top</item>
     </style>
+
+    <style name="SplashTheme" parent="AppTheme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="colorPrimaryDark">@android:color/white</item>
+        <item name="android:windowBackground">@drawable/bg_splash</item>
+    </style>
 </resources>

@@ -119,7 +119,7 @@ public class MyView extends View {
             if (index == 100) {
                 index = 0;
             }
-        }, 100, 10, TimeUnit.MILLISECONDS);
+        }, 100, 20, TimeUnit.MILLISECONDS);
         isStart = true;
     }
 

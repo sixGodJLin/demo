@@ -71,7 +71,7 @@ public class HomeActivity extends Activity {
             R.id.animate_demo, R.id.draw_demo, R.id.calendar_event, R.id.file_select,
             R.id.video_demo, R.id.music_demo, R.id.view_pager_demo, R.id.expand_view,
             R.id.dialog_demo, R.id.guide_demo, R.id.tcp_demo, R.id.recycler_demo,
-            R.id.camera_demo})
+            R.id.camera_demo, R.id.restart})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.calendar_view:
@@ -147,8 +147,14 @@ public class HomeActivity extends Activity {
                 break;
             case R.id.recycler_demo:
                 startActivity(new Intent(this, RecyclerActivity.class));
+                break;
             case R.id.camera_demo:
                 startActivity(new Intent(this, CameraActivity.class));
+                break;
+            case R.id.restart:
+                final Intent intent = getPackageManager().getLaunchIntentForPackage(getPackageName());
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
                 break;
             default:
                 break;

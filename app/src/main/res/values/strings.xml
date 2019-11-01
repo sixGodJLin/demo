@@ -141,4 +141,6 @@
     <string name="line_chart">line chart</string>
     <string name="recycler_demo">recycler demo</string>
     <string name="camera_demo">camera demo</string>
+    <string name="restart_app">restart app</string>
+    <string name="button1">button1</string>
 </resources>
