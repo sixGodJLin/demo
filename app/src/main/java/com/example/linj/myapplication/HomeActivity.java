@@ -12,9 +12,13 @@ import android.support.annotation.Nullable;
 import android.view.View;
 
 import com.example.linj.myapplication.alarm.AlarmActivity;
+import com.example.linj.myapplication.baidu.MapActivity;
 import com.example.linj.myapplication.recycler.RecyclerActivity;
+import com.example.linj.myapplication.retrofit.RetrofitActivity;
 import com.example.linj.myapplication.service.ServiceActivity;
+import com.example.linj.myapplication.table.SmartTableActivity;
 import com.example.linj.myapplication.tcp.TcpDemoActivity;
+import com.yzq.zxinglibrary.android.CaptureActivity;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -53,6 +57,7 @@ public class HomeActivity extends Activity {
     int mMonth;
     int mDay;
 
+    int sum = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +69,17 @@ public class HomeActivity extends Activity {
         mYear = c.get(Calendar.YEAR);
         mMonth = c.get(Calendar.MONTH);
         mDay = c.get(Calendar.DAY_OF_MONTH);
+
+        for (int i = 0; i < 10; i++) {
+            Thread thread = new Thread(() -> {
+                for (int j = 0; j < 1000; j++) {
+                    sum++;
+                }
+            });
+            thread.start();
+        }
+
+        System.out.println("HomeActivity:" + "onCreate" + "====" + sum);
     }
 
     @SuppressLint("NewApi")
@@ -71,7 +87,8 @@ public class HomeActivity extends Activity {
             R.id.animate_demo, R.id.draw_demo, R.id.calendar_event, R.id.file_select,
             R.id.video_demo, R.id.music_demo, R.id.view_pager_demo, R.id.expand_view,
             R.id.dialog_demo, R.id.guide_demo, R.id.tcp_demo, R.id.recycler_demo,
-            R.id.camera_demo, R.id.restart})
+            R.id.camera_demo, R.id.restart, R.id.smart_table, R.id.baidu_map_demo,
+            R.id.retrofit_demo, R.id.edit_text_demo, R.id.zxing_demo})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.calendar_view:
@@ -155,6 +172,21 @@ public class HomeActivity extends Activity {
                 final Intent intent = getPackageManager().getLaunchIntentForPackage(getPackageName());
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
+                break;
+            case R.id.smart_table:
+                startActivity(new Intent(this, SmartTableActivity.class));
+                break;
+            case R.id.baidu_map_demo:
+                startActivity(new Intent(this, MapActivity.class));
+                break;
+            case R.id.retrofit_demo:
+                startActivity(new Intent(this, RetrofitActivity.class));
+                break;
+            case R.id.edit_text_demo:
+                startActivity(new Intent(this, EditTextDemoActivity.class));
+                break;
+            case R.id.zxing_demo:
+                startActivityForResult(new Intent(this, CaptureActivity.class), 0x00);
                 break;
             default:
                 break;

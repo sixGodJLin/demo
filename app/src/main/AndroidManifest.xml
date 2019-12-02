@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.linj.myapplication">
 
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -10,6 +11,9 @@
     <uses-permission android:name="android.permission.WRITE_CALENDAR" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <!-- zXinG 震动 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
 
     <application
         android:allowBackup="true"
@@ -19,6 +23,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".EditTextDemoActivity" />
+        <activity android:name=".retrofit.RetrofitActivity" />
+        <activity android:name=".baidu.MapActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,20 +41,6 @@
         <activity android:name=".alarm.AlarmActivity" />
         <activity android:name=".SwipeActivity" />
         <activity android:name=".ScheduleActivity" />
-
-        <service android:name=".alarm.AlarmService" />
-
-        <receiver android:name=".alarm.AlarmReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
-        <receiver android:name=".broadcast.BroadCast">
-            <intent-filter>
-                <action android:name="com.JLin.broadcast" />
-            </intent-filter>
-        </receiver>
-
         <activity android:name=".AnimateActivity" />
         <activity android:name=".DrawActivity" />
         <activity android:name=".CalendarActivity" />
@@ -64,10 +57,23 @@
         <activity android:name=".GuideActivity" />
         <activity android:name=".tcp.TcpDemoActivity" />
         <activity android:name=".service.ServiceActivity" />
+        <activity android:name=".table.SmartTableActivity" />
 
         <service android:name=".service.MyService1" />
         <service android:name=".service.MyService2" />
         <service android:name=".service.ForegroundService" />
+        <service android:name=".alarm.AlarmService" />
+
+        <receiver android:name=".alarm.AlarmReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".broadcast.BroadCast">
+            <intent-filter>
+                <action android:name="com.JLin.broadcast" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

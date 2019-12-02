@@ -9,9 +9,20 @@
     <TextView
         android:id="@+id/take_photo"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="@dimen/px90"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
         android:gravity="center"
         android:text="take photo"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/image_view"
+        android:layout_width="@dimen/px200"
+        android:layout_height="@dimen/px200"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/take_photo" />
 
 </android.support.constraint.ConstraintLayout>

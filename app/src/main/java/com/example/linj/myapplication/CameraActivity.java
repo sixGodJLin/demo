@@ -4,38 +4,46 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.example.linj.myapplication.utils.CommonUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class CameraActivity extends AppCompatActivity {
     private static int TAKE_PHOTO = 0X10;
+    @BindView(R.id.image_view)
+    ImageView imageView;
     private String path;
     private String picPath;
     private Uri picUri;
-
-    Bitmap bitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
+        ButterKnife.bind(this);
+    }
+
+    @OnClick(R.id.take_photo)
+    public void onViewClicked() {
         path = Environment.getExternalStorageDirectory().getPath();
         picPath = path + File.separator + getPhotoFileName() + ".jpg";
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -53,7 +61,11 @@ public class CameraActivity extends AppCompatActivity {
         }
     }
 
-    //生成照片的名字
+    /**
+     * 生成照片的名字
+     *
+     * @return name
+     */
     private String getPhotoFileName() {
         Date date = new Date(System.currentTimeMillis());
         SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd_HHmmss");
@@ -65,21 +77,11 @@ public class CameraActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
             if (requestCode == TAKE_PHOTO) {
-                try {
-                    FileInputStream fis = new FileInputStream(picPath);
-                    Bitmap bitmap = BitmapFactory.decodeStream(fis);//生成原图
-                    String img_Address = CommonUtils.saveMyBitmap(
-                            getApplicationContext(),
-                            CommonUtils.compressImage(CommonUtils.comp(bitmap)),
-                            CommonUtils.Time());
-                    File file = new File(picPath);
-                    if (file.exists()) {
-                        file.delete();
-                    }
-                    System.out.println("CameraActivity:" + "onActivityResult" + "----" + img_Address);
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                }
+                // 生成原图
+                Bitmap bitmap = BitmapFactory.decodeFile(picPath);
+                // 图片压缩
+                Bitmap compressBitmap = ThumbnailUtils.extractThumbnail(bitmap, 720, 1080);
+                CommonUtils.saveMyBitmap(getApplicationContext(), compressBitmap, CommonUtils.Time());
             }
         }
     }

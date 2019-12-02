@@ -143,4 +143,9 @@
     <string name="camera_demo">camera demo</string>
     <string name="restart_app">restart app</string>
     <string name="button1">button1</string>
+    <string name="smart_table">smart_table_demo</string>
+    <string name="baidu_map_demo">baidu map demo</string>
+    <string name="retrofit_demo">retrofit demo</string>
+    <string name="edit_text_demo">edit text demo</string>
+    <string name="zxing_demo">zxing demo</string>
 </resources>

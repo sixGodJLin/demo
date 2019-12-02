@@ -206,6 +206,56 @@
                 android:gravity="center"
                 android:text="@string/restart_app"
                 android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/smart_table"
+                android:layout_width="match_parent"
+                android:layout_height="50sp"
+                android:layout_marginTop="4sp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:text="@string/smart_table"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/baidu_map_demo"
+                android:layout_width="match_parent"
+                android:layout_height="50sp"
+                android:layout_marginTop="4sp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:text="@string/baidu_map_demo"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/retrofit_demo"
+                android:layout_width="match_parent"
+                android:layout_height="50sp"
+                android:layout_marginTop="4sp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:text="@string/retrofit_demo"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/edit_text_demo"
+                android:layout_width="match_parent"
+                android:layout_height="50sp"
+                android:layout_marginTop="4sp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:text="@string/edit_text_demo"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/zxing_demo"
+                android:layout_width="match_parent"
+                android:layout_height="50sp"
+                android:layout_marginTop="4sp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:text="@string/zxing_demo"
+                android:textSize="20sp" />
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 </LinearLayout>
