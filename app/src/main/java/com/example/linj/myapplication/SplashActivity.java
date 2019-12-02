@@ -15,6 +15,11 @@ import com.tbruyelle.rxpermissions2.RxPermissions;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+/**
+ * @author JLin
+ * @date 2019/12/2
+ * @describe 欢迎页
+ */
 public class SplashActivity extends AppCompatActivity {
 
     @BindView(R.id.iv_splash)

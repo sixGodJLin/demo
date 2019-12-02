@@ -20,12 +20,9 @@ public class ScheduleActivity extends Activity {
         setContentView(R.layout.activity_schedule);
         executor = new ScheduledThreadPoolExecutor(0);
 
-        executor.scheduleAtFixedRate(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("ScheduleActivity " + "run " + "----" + i);
-                i++;
-            }
+        executor.scheduleAtFixedRate(() -> {
+            System.out.println("ScheduleActivity " + "run " + "----" + i);
+            i++;
         }, 0, 10, TimeUnit.MILLISECONDS);
     }
 

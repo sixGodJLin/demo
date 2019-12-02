@@ -21,6 +21,8 @@ import butterknife.ButterKnife;
 
 /**
  * @author JLin
+ * @date 2019/12/2
+ * @describe 引导界面
  */
 public class GuideActivity extends Activity {
 

@@ -47,9 +47,6 @@
         <activity
             android:name=".VideoActivity"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".MusicActivity"
-            android:screenOrientation="portrait" />
         <activity android:name=".PDFViewActivity" />
         <activity android:name=".ViewPagerActivity" />
         <activity android:name=".ExpandActivity" />

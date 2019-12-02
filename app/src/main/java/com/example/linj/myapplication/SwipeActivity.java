@@ -13,10 +13,11 @@ import butterknife.ButterKnife;
 
 /**
  * @author JLin
+ * @date 2019/12/2
+ * @describe 类似左滑删除的东西... 还未完成
  */
 public class SwipeActivity extends Activity {
     SwipeView swipeView;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

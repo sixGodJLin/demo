@@ -85,7 +85,7 @@ public class HomeActivity extends Activity {
     @SuppressLint("NewApi")
     @OnClick({R.id.calendar_view, R.id.service_demo, R.id.alarm_demo, R.id.swipe_demo, R.id.schedule_demo,
             R.id.animate_demo, R.id.draw_demo, R.id.calendar_event, R.id.file_select,
-            R.id.video_demo, R.id.music_demo, R.id.view_pager_demo, R.id.expand_view,
+            R.id.video_demo, R.id.view_pager_demo, R.id.expand_view,
             R.id.dialog_demo, R.id.guide_demo, R.id.tcp_demo, R.id.recycler_demo,
             R.id.camera_demo, R.id.restart, R.id.smart_table, R.id.baidu_map_demo,
             R.id.retrofit_demo, R.id.edit_text_demo, R.id.zxing_demo})
@@ -116,39 +116,13 @@ public class HomeActivity extends Activity {
                 startActivity(new Intent(this, CalendarActivity.class));
                 break;
             case R.id.file_select:
-//                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-//                intent.setType("*/*");
-//                intent.addCategory(Intent.CATEGORY_OPENABLE);
-//                try {
-//                    startActivityForResult(Intent.createChooser(intent, "选择文件上传"), 345);
-//                } catch (android.content.ActivityNotFoundException ex) {
-//                    Toast.makeText(this, "请安装一个文件管理器.", Toast.LENGTH_SHORT).show();
-//                }
-//                try {
-//                    readFile();
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
                 startActivity(new Intent(this, PDFViewActivity.class));
                 break;
             case R.id.video_demo:
                 startActivity(new Intent(this, VideoActivity.class));
                 break;
-            case R.id.music_demo:
-                startActivity(new Intent(this, MusicActivity.class));
-                break;
             case R.id.view_pager_demo:
                 startActivity(new Intent(this, ViewPagerActivity.class));
-//                DatePickerDialog datePickerDialog = new DatePickerDialog(HomeActivity.this, (view1, year, month, dayOfMonth) -> {
-//                    Calendar startcal = Calendar.getInstance();
-//                    startcal.set(Calendar.YEAR, year);
-//                    startcal.set(Calendar.MONTH, month);
-//                    startcal.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-//                    String date = new SimpleDateFormat("yyyy-MM-dd").format(new Date(startcal.getTimeInMillis()));
-//                    System.out.println("HomeActivity " + "onViewClicked " + "----" + date);
-//                }, mYear, mMonth, mDay);
-//
-//                datePickerDialog.show();
                 break;
             case R.id.expand_view:
                 startActivity(new Intent(this, ExpandActivity.class));

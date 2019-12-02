@@ -22,6 +22,15 @@ import com.example.linj.myapplication.R;
 /**
  * @author JLin
  * @date 2018/12/24
+ * @describe 自定义可拓展的自定义布局
+ * <ExpandView
+ *      app:expand_content_view="自定义尾部id"
+ *      app:expand_head_view="自定义头部的id"
+ *     <View
+ *          android:id="@+id/自定义头部id" />
+ *     <View
+ *          android:id="@+id/自定义尾部id" />
+ * </ExpandView>
  */
 public class ExpandView extends LinearLayout {
     private ObjectAnimator rotationAnimator;        // 旋转动画

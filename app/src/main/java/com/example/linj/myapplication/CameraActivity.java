@@ -4,7 +4,6 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,11 +14,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.example.linj.myapplication.utils.CommonUtils;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -27,6 +23,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+/**
+ * @author JLin
+ * @date 2019/12/2
+ * @describe 调用相机功能
+ */
 public class CameraActivity extends AppCompatActivity {
     private static int TAKE_PHOTO = 0X10;
     @BindView(R.id.image_view)
@@ -80,8 +81,9 @@ public class CameraActivity extends AppCompatActivity {
                 // 生成原图
                 Bitmap bitmap = BitmapFactory.decodeFile(picPath);
                 // 图片压缩
-                Bitmap compressBitmap = ThumbnailUtils.extractThumbnail(bitmap, 720, 1080);
-                CommonUtils.saveMyBitmap(getApplicationContext(), compressBitmap, CommonUtils.Time());
+//                Bitmap compressBitmap = ThumbnailUtils.extractThumbnail(bitmap, 720, 1080);
+//                CommonUtils.saveMyBitmap(getApplicationContext(), compressBitmap, CommonUtils.Time());
+                Glide.with(getApplicationContext()).load(bitmap).into(imageView);
             }
         }
     }

@@ -13,7 +13,9 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * @author JLin
+ * @author Administrator
+ * @date 2019/12/2
+ * @describe dialog实例，包含两种类型
  */
 public class DialogDemoActivity extends AppCompatActivity {
 

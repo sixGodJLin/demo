@@ -8,26 +8,6 @@
     android:orientation="vertical"
     tools:context=".ExpandActivity">
 
-    <!--<com.example.linj.myapplication.view.ExpandableLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--app:content_view="@+id/content"-->
-    <!--app:drawable="@drawable/shape_text_start_rect_primary"-->
-    <!--app:title="主诉"-->
-    <!--app:titleSize="15sp">-->
-
-    <!--<android.support.v7.widget.AppCompatEditText-->
-    <!--android:id="@+id/content"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:background="@android:color/transparent"-->
-    <!--android:hint="123"-->
-    <!--android:inputType="text"-->
-    <!--android:padding="@dimen/px30"-->
-    <!--android:textSize="14sp" />-->
-
-    <!--</com.example.linj.myapplication.view.ExpandableLayout>-->
-
     <com.example.linj.myapplication.view.ExpandView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

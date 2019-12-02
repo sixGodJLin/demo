@@ -7,6 +7,11 @@ import android.widget.EditText;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+/**
+ * @author JLin
+ * @date 2019/12/2
+ * @describe 输入编辑框输入文本限制等
+ */
 public class EditTextDemoActivity extends AppCompatActivity {
     @BindView(R.id.edit_text)
     EditText editText;

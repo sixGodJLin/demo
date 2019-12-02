@@ -12,13 +12,19 @@ import android.widget.RelativeLayout;
 import es.voghdev.pdfviewpager.library.RemotePDFViewPager;
 import es.voghdev.pdfviewpager.library.adapter.PDFPagerAdapter;
 import es.voghdev.pdfviewpager.library.remote.DownloadFile;
+import es.voghdev.pdfviewpager.library.util.FileUtil;
 
+/**
+ * @author JLin
+ * @date 2019/12/2
+ * @describe pdf显示 用列表式显示
+ */
 public class PDFViewActivity extends Activity implements DownloadFile.Listener {
 
     private RelativeLayout pdf_root;
     private ProgressBar pb_bar;
     private RemotePDFViewPager remotePDFViewPager;
-    private String mUrl = "http://192.168.97.115/neuroCloud/files/file.pdf";
+    private String mUrl = "https://partners.adobe.com/public/developer/en/xml/AdobeXMLFormsSamples.pdf";
     private PDFPagerAdapter adapter;
 
     @Override
@@ -46,7 +52,7 @@ public class PDFViewActivity extends Activity implements DownloadFile.Listener {
     @Override
     public void onSuccess(String url, String destinationPath) {
         pb_bar.setVisibility(View.GONE);
-        adapter = new PDFPagerAdapter(this, "baogao");
+        adapter = new PDFPagerAdapter(this, FileUtil.extractFileNameFromURL(url));
         remotePDFViewPager.setAdapter(adapter);
         updateLayout();
     }

@@ -25,8 +25,7 @@ public class SwipeView extends LinearLayout {
 
     public SwipeView(Context context) {
         super(context);
-        params = new LayoutParams((int) getContext().getResources().getDimension(R.dimen.px500),
-                (int) getContext().getResources().getDimension(R.dimen.px300));
+        params = new LayoutParams((int) getContext().getResources().getDimension(R.dimen.px500), (int) getContext().getResources().getDimension(R.dimen.px300));
 
         textView = new TextView(context);
         textView.setText("123");
@@ -36,12 +35,8 @@ public class SwipeView extends LinearLayout {
         textView.setPadding((int) getContext().getResources().getDimension(R.dimen.px32), 0, 0, 0);
 
         addView(textView);
-        textView.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        textView.setOnClickListener(v ->
                 textView.scrollBy((int) getContext().getResources().getDimension(R.dimen.px5),
-                        (int) getContext().getResources().getDimension(R.dimen.px5));
-            }
-        });
+                        (int) getContext().getResources().getDimension(R.dimen.px5)));
     }
 }

@@ -6,6 +6,7 @@ import com.example.linj.myapplication.R;
 /**
  * @author JLin
  * @date 2019/1/11
+ * @describe 自定义dialog
  */
 public class MyDialog extends BaseDialog {
 
@@ -22,6 +23,7 @@ public class MyDialog extends BaseDialog {
     public void convertView(ViewHolder holder, BaseDialog dialog) {
         holder.setOnClickListener(R.id.tv_morning, v -> {
             System.out.println("MyDialog " + "convertView " + "----");
+            dismiss();
         });
     }
 }

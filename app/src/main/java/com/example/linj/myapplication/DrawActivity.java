@@ -11,6 +11,8 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @author JLin
+ * @date 2019/12/2
+ * @describe 类似心电图的绘制
  */
 public class DrawActivity extends Activity {
     private MyView myView1;

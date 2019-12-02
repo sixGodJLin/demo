@@ -5,6 +5,8 @@ import android.os.Bundle;
 
 /**
  * @author JLin
+ * @date 2019/12/2
+ * @describe 可拓展界面
  */
 public class ExpandActivity extends Activity {
 

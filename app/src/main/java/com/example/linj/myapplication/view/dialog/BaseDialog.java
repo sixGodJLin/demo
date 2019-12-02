@@ -1,6 +1,5 @@
 package com.example.linj.myapplication.view.dialog;
 
-import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -24,6 +23,7 @@ import com.example.linj.myapplication.R;
 /**
  * @author JLin
  * @date 2019/1/11
+ * @describe 自定义dialog基类
  */
 public abstract class BaseDialog extends DialogFragment {
     public static final int LAYOUT_PARAM_MATCH_PARENT = WindowManager.LayoutParams.MATCH_PARENT;
@@ -102,7 +102,6 @@ public abstract class BaseDialog extends DialogFragment {
             lp.height = mHeight;
             lp.alpha = 1.0f;
             window.setAttributes(lp);
-
         }
     }
 
