@@ -57,8 +57,6 @@ public class HomeActivity extends Activity {
     int mMonth;
     int mDay;
 
-    int sum = 0;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,23 +67,12 @@ public class HomeActivity extends Activity {
         mYear = c.get(Calendar.YEAR);
         mMonth = c.get(Calendar.MONTH);
         mDay = c.get(Calendar.DAY_OF_MONTH);
-
-        for (int i = 0; i < 10; i++) {
-            Thread thread = new Thread(() -> {
-                for (int j = 0; j < 1000; j++) {
-                    sum++;
-                }
-            });
-            thread.start();
-        }
-
-        System.out.println("HomeActivity:" + "onCreate" + "====" + sum);
     }
 
     @SuppressLint("NewApi")
     @OnClick({R.id.calendar_view, R.id.service_demo, R.id.alarm_demo, R.id.swipe_demo, R.id.schedule_demo,
             R.id.animate_demo, R.id.draw_demo, R.id.calendar_event, R.id.file_select,
-            R.id.video_demo, R.id.view_pager_demo, R.id.expand_view,
+            R.id.video_demo, R.id.view_pager_demo, R.id.expand_view, R.id.send_email,
             R.id.dialog_demo, R.id.guide_demo, R.id.tcp_demo, R.id.recycler_demo,
             R.id.camera_demo, R.id.restart, R.id.smart_table, R.id.baidu_map_demo,
             R.id.retrofit_demo, R.id.edit_text_demo, R.id.zxing_demo})
@@ -161,6 +148,24 @@ public class HomeActivity extends Activity {
                 break;
             case R.id.zxing_demo:
                 startActivityForResult(new Intent(this, CaptureActivity.class), 0x00);
+                break;
+            case R.id.send_email:
+                Intent email = new Intent(android.content.Intent.ACTION_SEND);
+                //邮件发送类型：无附件，纯文本
+                email.setType("plain/text");
+                //邮件接收者（数组，可以是多位接收者）
+                String[] emailReciver = new String[]{"775729609@qq.com"};
+
+                String emailTitle = "标题";
+                String emailContent = "内容";
+                //设置邮件地址
+                email.putExtra(android.content.Intent.EXTRA_EMAIL, emailReciver);
+                //设置邮件标题
+                email.putExtra(android.content.Intent.EXTRA_SUBJECT, emailTitle);
+                //设置发送的内容
+                email.putExtra(android.content.Intent.EXTRA_TEXT, emailContent);
+                //调用系统的邮件系统
+                startActivity(Intent.createChooser(email, "请选择邮件发送软件"));
                 break;
             default:
                 break;

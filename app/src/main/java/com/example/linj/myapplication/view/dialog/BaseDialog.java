@@ -50,6 +50,11 @@ public abstract class BaseDialog extends DialogFragment {
     private boolean canceledOnTouchOutside = true;
 
     /**
+     * 绑定视图监听
+     */
+    private onBindViewListener onBindViewListener;
+
+    /**
      * 设置 layoutId
      *
      * @return layoutId
@@ -70,6 +75,9 @@ public abstract class BaseDialog extends DialogFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(getLayoutResId(), container, false);
         convertView(ViewHolder.create(view), this);
+        if (onBindViewListener != null) {
+            onBindViewListener.onBindView(ViewHolder.create(view), this);
+        }
         return view;
     }
 
@@ -116,6 +124,11 @@ public abstract class BaseDialog extends DialogFragment {
         return this;
     }
 
+    public BaseDialog bindViewListener(onBindViewListener listener) {
+        this.onBindViewListener = listener;
+        return this;
+    }
+
     public int setAnimStyle() {
         return R.style.FromBottomDialogAnim;
     }
@@ -124,6 +137,9 @@ public abstract class BaseDialog extends DialogFragment {
         super.show(manager, String.valueOf(System.currentTimeMillis()));
     }
 
+    public void dialogDismiss() {
+        super.dismiss();
+    }
     public BaseDialog setCanceledOnTouchOutside(boolean b) {
         this.canceledOnTouchOutside = b;
         return this;
@@ -212,5 +228,9 @@ public abstract class BaseDialog extends DialogFragment {
             View view = getView(viewId);
             view.setOnClickListener(listener);
         }
+    }
+
+    public interface onBindViewListener {
+        void onBindView(ViewHolder viewHolder, BaseDialog dialog);
     }
 }

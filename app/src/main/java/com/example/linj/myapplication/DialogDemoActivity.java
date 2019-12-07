@@ -34,7 +34,9 @@ public class DialogDemoActivity extends AppCompatActivity {
                         .setWidthAndHeight(BaseDialog.LAYOUT_PARAM_MATCH_PARENT, BaseDialog.LAYOUT_PARAM_WRAP_CONTENT)
                         .setCanceledOnTouchOutside(false)
                         .isBottom(true)
+                        .bindViewListener((viewHolder, dialog) -> ((MyDialog) dialog).showMessage(viewHolder))
                         .show(getSupportFragmentManager());
+
                 break;
             case R.id.button1:
                 AlertDialog alert = new AlertDialog.Builder(this).create();

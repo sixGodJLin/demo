@@ -21,9 +21,11 @@ public class MyDialog extends BaseDialog {
 
     @Override
     public void convertView(ViewHolder holder, BaseDialog dialog) {
-        holder.setOnClickListener(R.id.tv_morning, v -> {
-            System.out.println("MyDialog " + "convertView " + "----");
-            dismiss();
-        });
+        holder.setOnClickListener(R.id.tv_morning, v -> dismiss());
+    }
+
+    public void showMessage(ViewHolder viewHolder) {
+        viewHolder.setText(R.id.tv_morning, "拍个锤子");
+        System.out.println("MyDialog:" + "showMessage" + "====");
     }
 }
