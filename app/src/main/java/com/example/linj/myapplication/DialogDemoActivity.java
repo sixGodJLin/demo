@@ -36,7 +36,6 @@ public class DialogDemoActivity extends AppCompatActivity {
                         .isBottom(true)
                         .bindViewListener((viewHolder, dialog) -> ((MyDialog) dialog).showMessage(viewHolder))
                         .show(getSupportFragmentManager());
-
                 break;
             case R.id.button1:
                 AlertDialog alert = new AlertDialog.Builder(this).create();

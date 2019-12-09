@@ -1,7 +1,6 @@
 package com.example.linj.myapplication;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.net.Uri;
@@ -9,15 +8,21 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.linj.myapplication.alarm.AlarmActivity;
 import com.example.linj.myapplication.baidu.MapActivity;
+import com.example.linj.myapplication.mail.Mail;
+import com.example.linj.myapplication.mail.MailSendUtils;
 import com.example.linj.myapplication.recycler.RecyclerActivity;
 import com.example.linj.myapplication.retrofit.RetrofitActivity;
 import com.example.linj.myapplication.service.ServiceActivity;
 import com.example.linj.myapplication.table.SmartTableActivity;
 import com.example.linj.myapplication.tcp.TcpDemoActivity;
+import com.example.linj.myapplication.view.dialog.BaseDialog;
+import com.example.linj.myapplication.view.dialog.LoadingDialog;
 import com.yzq.zxinglibrary.android.CaptureActivity;
 
 import java.io.File;
@@ -51,11 +56,13 @@ import retrofit2.http.PartMap;
 /**
  * @author JLin
  */
-public class HomeActivity extends Activity {
+public class HomeActivity extends AppCompatActivity {
     static String path = Environment.getExternalStorageDirectory().getPath();
     int mYear;
     int mMonth;
     int mDay;
+
+    LoadingDialog loadingDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +74,10 @@ public class HomeActivity extends Activity {
         mYear = c.get(Calendar.YEAR);
         mMonth = c.get(Calendar.MONTH);
         mDay = c.get(Calendar.DAY_OF_MONTH);
+
+        loadingDialog = new LoadingDialog();
+        loadingDialog.setWidthAndHeight(BaseDialog.LAYOUT_PARAM_MATCH_PARENT, BaseDialog.LAYOUT_PARAM_WRAP_CONTENT);
+        loadingDialog.setCanceledOnTouchOutside(false);
     }
 
     @SuppressLint("NewApi")
@@ -150,22 +161,39 @@ public class HomeActivity extends Activity {
                 startActivityForResult(new Intent(this, CaptureActivity.class), 0x00);
                 break;
             case R.id.send_email:
-                Intent email = new Intent(android.content.Intent.ACTION_SEND);
-                //邮件发送类型：无附件，纯文本
-                email.setType("plain/text");
-                //邮件接收者（数组，可以是多位接收者）
-                String[] emailReciver = new String[]{"775729609@qq.com"};
+                loadingDialog.show(getSupportFragmentManager());
 
-                String emailTitle = "标题";
-                String emailContent = "内容";
-                //设置邮件地址
-                email.putExtra(android.content.Intent.EXTRA_EMAIL, emailReciver);
-                //设置邮件标题
-                email.putExtra(android.content.Intent.EXTRA_SUBJECT, emailTitle);
-                //设置发送的内容
-                email.putExtra(android.content.Intent.EXTRA_TEXT, emailContent);
-                //调用系统的邮件系统
-                startActivity(Intent.createChooser(email, "请选择邮件发送软件"));
+                String[] toAddr = {"775729609@qq.com"};
+                new Thread(() -> {
+                    Mail mail = new Mail();
+                    mail.setMailServerHost("smtp.qq.com");
+                    mail.setMailServerPort("25");
+                    mail.setValidate(true);
+                    mail.setUserName("775729609"); // 你的邮箱地址前一半
+                    mail.setPassword("hbmvsgyfpapubcge");// 您的邮箱密码
+                    mail.setFromAddress("775729609@qq.com"); // 发送的邮箱
+                    mail.setToAddress(toAddr); // 发到哪个邮件去
+                    mail.setSubject("测试结果"); // 邮件主题
+                    mail.setContent("嗨 all,"); // 邮件文本
+                    MailSendUtils mailSender = new MailSendUtils();
+                    mailSender.sendTextMail(mail, new MailSendUtils.sendCallback() {
+                        @Override
+                        public void success() {
+                            runOnUiThread(() -> {
+                                Toast.makeText(getApplicationContext(), "发送成功", Toast.LENGTH_SHORT).show();
+                                loadingDialog.dismiss();
+                            });
+                        }
+
+                        @Override
+                        public void fail(String message) {
+                            runOnUiThread(() -> {
+                                Toast.makeText(getApplicationContext(), "发送失败", Toast.LENGTH_SHORT).show();
+                                loadingDialog.dismiss();
+                            });
+                        }
+                    });// 记得放子线程
+                }).start();
                 break;
             default:
                 break;
