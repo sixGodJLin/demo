@@ -100,7 +100,8 @@ public class HomeActivity extends AppCompatActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.calendar_view:
-                startActivity(new Intent(this, MainActivity.class), ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
+//                startActivity(new Intent(this, MainActivity.class), ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
+                startActivity(new Intent(this, MainActivity.class));
                 break;
             case R.id.service_demo:
                 startActivity(new Intent(this, ServiceActivity.class));
