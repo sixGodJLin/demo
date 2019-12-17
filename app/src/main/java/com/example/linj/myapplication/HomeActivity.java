@@ -86,6 +86,8 @@ public class HomeActivity extends AppCompatActivity {
         Log.d(TAG, "1111111111111111111");
 
         Log.d(TAG, "2222222222222222222222");
+
+        Log.d(TAG, "333333333333333333333333");
     }
 
     @SuppressLint("NewApi")
