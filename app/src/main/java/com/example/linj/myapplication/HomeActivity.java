@@ -84,6 +84,7 @@ public class HomeActivity extends AppCompatActivity {
         loadingDialog.setCanceledOnTouchOutside(false);
 
         Log.d(TAG, "onCreate: test");
+        Log.d(TAG, "onCreate: test2");
     }
 
     @SuppressLint("NewApi")
