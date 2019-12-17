@@ -82,12 +82,6 @@ public class HomeActivity extends AppCompatActivity {
         loadingDialog = new LoadingDialog();
         loadingDialog.setWidthAndHeight(BaseDialog.LAYOUT_PARAM_MATCH_PARENT, BaseDialog.LAYOUT_PARAM_WRAP_CONTENT);
         loadingDialog.setCanceledOnTouchOutside(false);
-
-        Log.d(TAG, "1111111111111111111");
-
-        Log.d(TAG, "2222222222222222222222");
-
-        Log.d(TAG, "333333333333333333333333");
     }
 
     @SuppressLint("NewApi")
@@ -100,7 +94,7 @@ public class HomeActivity extends AppCompatActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.calendar_view:
-                startActivity(new Intent(this, MainActivity.class));
+                startActivity(new Intent(this, MainActivity.class), ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
                 break;
             case R.id.service_demo:
                 startActivity(new Intent(this, ServiceActivity.class));
