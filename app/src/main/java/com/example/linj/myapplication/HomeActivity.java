@@ -57,7 +57,7 @@ import retrofit2.http.PartMap;
 /**
  * @author JLin
  * @date 2019/12/17
- * @describe master home page
+ * @describe test home page
  */
 public class HomeActivity extends AppCompatActivity {
     private static final String TAG = "HomeActivity";
@@ -82,8 +82,6 @@ public class HomeActivity extends AppCompatActivity {
         loadingDialog = new LoadingDialog();
         loadingDialog.setWidthAndHeight(BaseDialog.LAYOUT_PARAM_MATCH_PARENT, BaseDialog.LAYOUT_PARAM_WRAP_CONTENT);
         loadingDialog.setCanceledOnTouchOutside(false);
-
-        Log.d(TAG, "onCreate: test");
     }
 
     @SuppressLint("NewApi")
