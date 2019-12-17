@@ -82,10 +82,6 @@ public class HomeActivity extends AppCompatActivity {
         loadingDialog = new LoadingDialog();
         loadingDialog.setWidthAndHeight(BaseDialog.LAYOUT_PARAM_MATCH_PARENT, BaseDialog.LAYOUT_PARAM_WRAP_CONTENT);
         loadingDialog.setCanceledOnTouchOutside(false);
-
-        Log.d(TAG, "333333333333333 ");
-        Log.d(TAG, "onCreate: test");
-        Log.d(TAG, "onCreate: test2");
     }
 
     @SuppressLint("NewApi")
