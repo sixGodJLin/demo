@@ -9,6 +9,7 @@ import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -59,6 +60,7 @@ import retrofit2.http.PartMap;
  * @describe master home page
  */
 public class HomeActivity extends AppCompatActivity {
+    private static final String TAG = "HomeActivity";
     static String path = Environment.getExternalStorageDirectory().getPath();
     int mYear;
     int mMonth;
@@ -80,6 +82,8 @@ public class HomeActivity extends AppCompatActivity {
         loadingDialog = new LoadingDialog();
         loadingDialog.setWidthAndHeight(BaseDialog.LAYOUT_PARAM_MATCH_PARENT, BaseDialog.LAYOUT_PARAM_WRAP_CONTENT);
         loadingDialog.setCanceledOnTouchOutside(false);
+
+        Log.d(TAG, "onCreate: test");
     }
 
     @SuppressLint("NewApi")
