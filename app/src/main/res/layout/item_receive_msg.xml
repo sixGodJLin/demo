@@ -6,13 +6,15 @@
 
     <TextView
         android:id="@+id/tv_receive"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/px32"
-        android:background="@drawable/bubble"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@android:color/white"
+        android:gravity="center"
         android:paddingStart="@dimen/px40"
         android:paddingEnd="@dimen/px40"
         android:text="1234567"
+        android:textColor="@android:color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
