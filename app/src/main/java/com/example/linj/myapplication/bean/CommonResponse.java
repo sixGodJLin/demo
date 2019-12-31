@@ -1,4 +1,4 @@
-package com.example.linj.myapplication.retrofit;
+package com.example.linj.myapplication.bean;
 
 import java.io.Serializable;
 

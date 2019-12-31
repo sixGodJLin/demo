@@ -25,28 +25,24 @@ public class DrawActivity extends Activity {
         setContentView(R.layout.activity_draw);
 
         myView1 = findViewById(R.id.my_view1);
-
         myView1.setPaintColor("#fabc6f");
-
         myView1.start();
 
         Random rnd = new Random();
-
-        // event 传输的假数据
-        double[][] doubles = new double[2][100];
-        for (int i = 0; i < 2; i++) {
-            for (int j = 0; j < 100; j++) {
-                doubles[i][j] = rnd.nextInt(200) - 100;
-            }
-        }
-
-        double[] doubles1 = new double[100];
-        for (int i = 0; i < 100; i++) {
-            doubles1[i] = doubles[0][i];
-        }
-
         scheduledThreadPoolExecutor = new ScheduledThreadPoolExecutor(1);
         scheduledThreadPoolExecutor.scheduleAtFixedRate(() -> {
+            double[][] doubles = new double[2][100];
+            for (int i = 0; i < 2; i++) {
+                for (int j = 0; j < 100; j++) {
+                    doubles[i][j] = rnd.nextInt(200) - 100;
+                }
+            }
+
+            double[] doubles1 = new double[100];
+            for (int i = 0; i < 100; i++) {
+                doubles1[i] = doubles[0][i];
+            }
+
             myView1.setData(doubles1);
         }, 0, 1000, TimeUnit.MILLISECONDS);
     }

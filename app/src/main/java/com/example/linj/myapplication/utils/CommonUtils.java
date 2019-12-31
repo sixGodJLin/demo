@@ -172,12 +172,12 @@ public class CommonUtils {
 	 */
 	public static String saveMyBitmap(Context context, Bitmap mBitmap, String bitName) {
 		// String path = "/sdcard/CloudAnt/image";
-		File destDir = new File(Environment.getExternalStorageDirectory() + "/CunKou/CKRO/photos/");
+		File destDir = new File(Environment.getExternalStorageDirectory() + "/photos/");
 		if (!destDir.exists()) {
 			destDir.mkdirs();
 		}
 		try {
-			File f = new File(Environment.getExternalStorageDirectory() + "/CunKou/CKRO/photos/", bitName + ".jpg");
+			File f = new File(Environment.getExternalStorageDirectory() + "/photos/", bitName + ".jpg");
 			if (f.exists()) {
 				f.delete();
 			}
@@ -188,7 +188,7 @@ public class CommonUtils {
 			out.write(os.toByteArray());
 			out.flush();
 			out.close();
-			return Environment.getExternalStorageDirectory() + "/CunKou/CKRO/photos/" + bitName + ".jpg";
+			return Environment.getExternalStorageDirectory() + "/photos/" + bitName + ".jpg";
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

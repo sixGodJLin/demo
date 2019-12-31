@@ -16,6 +16,7 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -26,8 +27,6 @@ public class MyView extends View {
     Paint paint;
     Path path;
     ScheduledThreadPoolExecutor scheduledThreadPoolExecutor;
-
-    final int pointNum = 100;
 
     double[] origin;
 

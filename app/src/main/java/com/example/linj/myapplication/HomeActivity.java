@@ -3,6 +3,8 @@ package com.example.linj.myapplication;
 import android.annotation.SuppressLint;
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -13,6 +15,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.bin.david.form.data.form.IForm;
 import com.example.linj.myapplication.alarm.AlarmActivity;
 import com.example.linj.myapplication.baidu.MapActivity;
 import com.example.linj.myapplication.mail.Mail;
@@ -25,6 +28,8 @@ import com.example.linj.myapplication.tcp.TcpDemoActivity;
 import com.example.linj.myapplication.view.dialog.BaseDialog;
 import com.example.linj.myapplication.view.dialog.LoadingDialog;
 import com.yzq.zxinglibrary.android.CaptureActivity;
+import com.yzq.zxinglibrary.common.Constant;
+import com.yzq.zxinglibrary.encode.CodeCreator;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -163,6 +168,14 @@ public class HomeActivity extends AppCompatActivity {
                 break;
             case R.id.zxing_demo:
                 startActivityForResult(new Intent(this, CaptureActivity.class), 0x00);
+                /*
+                 * contentEtString：字符串内容
+                 * w：图片的宽
+                 * h：图片的高
+                 * logo：不需要logo的话直接传null
+                 */
+//                Bitmap logo = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
+//                Bitmap bitmap = CodeCreator.createQRCode("123456789", 400, 400, logo);
                 break;
             case R.id.send_email:
                 loadingDialog.show(getSupportFragmentManager());
@@ -250,6 +263,12 @@ public class HomeActivity extends AppCompatActivity {
                         }
                     });
                 }
+            }
+        }
+        if (requestCode == 0x00) {
+            if (resultCode == RESULT_OK) { // 垃圾巡检——机器的吗
+                String content = data.getStringExtra(Constant.CODED_CONTENT);
+                Log.d(TAG, "onActivityResult: " + content);
             }
         }
     }

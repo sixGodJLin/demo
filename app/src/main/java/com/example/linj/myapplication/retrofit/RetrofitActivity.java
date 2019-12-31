@@ -4,8 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.linj.myapplication.R;
+import com.example.linj.myapplication.bean.CommonResponse;
 import com.example.linj.myapplication.utils.third.RetrofitApp;
-import com.google.gson.Gson;
 
 import retrofit2.Call;
 import retrofit2.Callback;
