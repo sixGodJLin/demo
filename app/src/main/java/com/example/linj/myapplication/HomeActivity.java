@@ -20,6 +20,7 @@ import com.example.linj.myapplication.alarm.AlarmActivity;
 import com.example.linj.myapplication.baidu.MapActivity;
 import com.example.linj.myapplication.mail.Mail;
 import com.example.linj.myapplication.mail.MailSendUtils;
+import com.example.linj.myapplication.recycler.Recycler2Activity;
 import com.example.linj.myapplication.recycler.RecyclerActivity;
 import com.example.linj.myapplication.retrofit.RetrofitActivity;
 import com.example.linj.myapplication.service.ServiceActivity;
@@ -144,7 +145,7 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(new Intent(this, TcpDemoActivity.class));
                 break;
             case R.id.recycler_demo:
-                startActivity(new Intent(this, RecyclerActivity.class));
+                startActivity(new Intent(this, Recycler2Activity.class));
                 break;
             case R.id.camera_demo:
                 startActivity(new Intent(this, CameraActivity.class));
