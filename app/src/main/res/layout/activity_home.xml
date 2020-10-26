@@ -117,6 +117,16 @@
                 android:textSize="20sp" />
 
             <TextView
+                android:id="@+id/video_record_demo"
+                android:layout_width="match_parent"
+                android:layout_height="50sp"
+                android:layout_marginTop="4sp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:text="@string/video_record_demo"
+                android:textSize="20sp" />
+
+            <TextView
                 android:id="@+id/view_pager_demo"
                 android:layout_width="match_parent"
                 android:layout_height="50sp"

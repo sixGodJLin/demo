@@ -30,13 +30,13 @@ public class RecyclerActivity extends Activity {
 
         List<String> string = new ArrayList<>();
         string.add("1");
-        string.add("1");
-        string.add("1");
-        string.add("2");
         string.add("2");
         string.add("3");
         string.add("4");
-        string.add("4");
+        string.add("5");
+        string.add("6");
+        string.add("7");
+        string.add("8");
 
         String value = "0";
 

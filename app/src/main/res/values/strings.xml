@@ -149,4 +149,5 @@
     <string name="edit_text_demo">edit text demo</string>
     <string name="zxing_demo">zxing demo</string>
     <string name="send_email">send email</string>
+    <string name="video_record_demo">video_record_demo</string>
 </resources>

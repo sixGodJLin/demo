@@ -36,6 +36,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Base64;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
@@ -88,6 +89,45 @@ public class HomeActivity extends AppCompatActivity {
         loadingDialog = new LoadingDialog();
         loadingDialog.setWidthAndHeight(BaseDialog.LAYOUT_PARAM_MATCH_PARENT, BaseDialog.LAYOUT_PARAM_WRAP_CONTENT);
         loadingDialog.setCanceledOnTouchOutside(false);
+
+        // 填入客户 ID（customerId）和客户密钥（customerSecret），计算 plainCredentials。
+        String plainCredentials = "980141da5dad4f0e8afb07a9032ef643:fde13f667b914a6380d3cf9a80085c97";
+        // 填入 plainCredentials，计算 base64Credentials（使用 Base64 算法编码）。
+        String base64Credentials = new String(Base64.getEncoder().encode(plainCredentials.getBytes()));
+        Log.d(TAG, "onCreate: " + base64Credentials);
+        int[] arr = new int[]{1,1,2,3,4,6,7,8,9,0};
+        Log.d(TAG, "onCreate: ------------" + maxLength(arr));
+    }
+
+    public int maxLength(int[] arr) {
+        int max = 0;
+        int regionLength = arr.length;
+        int[] temp = arr;
+
+        for (int i = 0; i < regionLength; i++) {
+            if (length(temp) > max) {
+                max = length(temp);
+            }
+            temp = getArray(temp);
+        }
+        return max;
+    }
+
+    private int length(int[] arr) {
+        String str = "" + arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (str.contains("" + arr[i])) {
+                return str.length();
+            }
+            str = str + arr[i];
+        }
+        return str.length();
+    }
+
+    private int[] getArray(int[] array) {
+        int[] temp = new int[array.length - 1];
+        System.arraycopy(array, 1, temp, 0, temp.length);
+        return temp;
     }
 
     @SuppressLint("NewApi")
@@ -96,7 +136,7 @@ public class HomeActivity extends AppCompatActivity {
             R.id.video_demo, R.id.view_pager_demo, R.id.expand_view, R.id.send_email,
             R.id.dialog_demo, R.id.guide_demo, R.id.tcp_demo, R.id.recycler_demo,
             R.id.camera_demo, R.id.restart, R.id.smart_table, R.id.baidu_map_demo,
-            R.id.retrofit_demo, R.id.edit_text_demo, R.id.zxing_demo})
+            R.id.retrofit_demo, R.id.edit_text_demo, R.id.zxing_demo, R.id.video_record_demo})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.calendar_view:
@@ -128,6 +168,9 @@ public class HomeActivity extends AppCompatActivity {
                 break;
             case R.id.video_demo:
                 startActivity(new Intent(this, VideoActivity.class));
+                break;
+            case R.id.video_record_demo:
+                startActivity(new Intent(this, VideoRecordActivity.class));
                 break;
             case R.id.view_pager_demo:
                 startActivity(new Intent(this, ViewPagerActivity.class));
