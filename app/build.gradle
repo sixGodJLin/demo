@@ -6,7 +6,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.example.linj.myapplication"
-        minSdkVersion 26
+        minSdkVersion 22
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -63,6 +63,16 @@ dependencies {
 
     implementation 'com.sun.mail:android-mail:1.6.0'
     implementation 'com.sun.mail:android-activation:1.6.0'
+    // JoDa-time
+    implementation 'joda-time:joda-time:2.10.1'
+    implementation 'com.facebook.fresco:fresco:1.5.0'
+    implementation 'com.facebook.fresco:animated-gif:1.5.0'
+
+    implementation 'com.qianwen:update-app:3.5.2'
+    implementation 'com.zhy:okhttputils:2.6.2'
+
+    implementation 'com.github.yaming116:UpdateApp:1.0.2'
+
 }
 repositories {
     mavenCentral()

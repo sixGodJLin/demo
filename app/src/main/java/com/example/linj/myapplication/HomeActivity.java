@@ -2,42 +2,52 @@ package com.example.linj.myapplication;
 
 import android.annotation.SuppressLint;
 import android.app.ActivityOptions;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.bin.david.form.data.form.IForm;
 import com.example.linj.myapplication.alarm.AlarmActivity;
 import com.example.linj.myapplication.baidu.MapActivity;
+import com.example.linj.myapplication.bean.GetRandomPictureUrlRequest;
+import com.example.linj.myapplication.bean.RandomPicResponse;
 import com.example.linj.myapplication.mail.Mail;
 import com.example.linj.myapplication.mail.MailSendUtils;
 import com.example.linj.myapplication.recycler.Recycler2Activity;
-import com.example.linj.myapplication.recycler.RecyclerActivity;
 import com.example.linj.myapplication.retrofit.RetrofitActivity;
 import com.example.linj.myapplication.service.ServiceActivity;
 import com.example.linj.myapplication.table.SmartTableActivity;
 import com.example.linj.myapplication.tcp.TcpDemoActivity;
-import com.example.linj.myapplication.view.dialog.BaseDialog;
 import com.example.linj.myapplication.view.dialog.LoadingDialog;
+import com.google.gson.Gson;
 import com.yzq.zxinglibrary.android.CaptureActivity;
 import com.yzq.zxinglibrary.common.Constant;
-import com.yzq.zxinglibrary.encode.CodeCreator;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.FileCallBack;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Base64;
-import java.util.Calendar;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -45,6 +55,7 @@ import java.util.Map;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.reactivex.Emitter;
+import me.shenfan.updateapp.UpdateService;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import okio.Buffer;
@@ -57,6 +68,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.Body;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PartMap;
@@ -81,53 +93,40 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         ButterKnife.bind(this);
 
-        Calendar c = Calendar.getInstance();
-        mYear = c.get(Calendar.YEAR);
-        mMonth = c.get(Calendar.MONTH);
-        mDay = c.get(Calendar.DAY_OF_MONTH);
+//        Calendar c = Calendar.getInstance();
+//        mYear = c.get(Calendar.YEAR);
+//        mMonth = c.get(Calendar.MONTH);
+//        mDay = c.get(Calendar.DAY_OF_MONTH);
+//
+//        loadingDialog = new LoadingDialog();
+//        loadingDialog.setWidthAndHeight(BaseDialog.LAYOUT_PARAM_MATCH_PARENT, BaseDialog.LAYOUT_PARAM_WRAP_CONTENT);
+//        loadingDialog.setCanceledOnTouchOutside(false);
 
-        loadingDialog = new LoadingDialog();
-        loadingDialog.setWidthAndHeight(BaseDialog.LAYOUT_PARAM_MATCH_PARENT, BaseDialog.LAYOUT_PARAM_WRAP_CONTENT);
-        loadingDialog.setCanceledOnTouchOutside(false);
+        String fileName = Environment.getExternalStorageDirectory() + "/capture.png";
 
-        // 填入客户 ID（customerId）和客户密钥（customerSecret），计算 plainCredentials。
-        String plainCredentials = "980141da5dad4f0e8afb07a9032ef643:fde13f667b914a6380d3cf9a80085c97";
-        // 填入 plainCredentials，计算 base64Credentials（使用 Base64 算法编码）。
-        String base64Credentials = new String(Base64.getEncoder().encode(plainCredentials.getBytes()));
-        Log.d(TAG, "onCreate: " + base64Credentials);
-        int[] arr = new int[]{1,1,2,3,4,6,7,8,9,0};
-        Log.d(TAG, "onCreate: ------------" + maxLength(arr));
-    }
-
-    public int maxLength(int[] arr) {
-        int max = 0;
-        int regionLength = arr.length;
-        int[] temp = arr;
-
-        for (int i = 0; i < regionLength; i++) {
-            if (length(temp) > max) {
-                max = length(temp);
-            }
-            temp = getArray(temp);
-        }
-        return max;
-    }
-
-    private int length(int[] arr) {
-        String str = "" + arr[0];
-        for (int i = 1; i < arr.length; i++) {
-            if (str.contains("" + arr[i])) {
-                return str.length();
-            }
-            str = str + arr[i];
-        }
-        return str.length();
-    }
-
-    private int[] getArray(int[] array) {
-        int[] temp = new int[array.length - 1];
-        System.arraycopy(array, 1, temp, 0, temp.length);
-        return temp;
+//        RetrofitApp.inject("http://www.cunkou.co/cunKouApp/cunKouService/");
+//        GetRandomPictureUrlRequest request = new GetRandomPictureUrlRequest();
+//
+//        ScheduledExecutorService scheduledExecutorService = new ScheduledThreadPoolExecutor(1);
+//        scheduledExecutorService.scheduleWithFixedDelay(() -> {
+//            System.out.println("-------------------------------------------------------");
+//            request.setExchangeTime(TimeUtils.format(System.currentTimeMillis(), TimeUtils.Formatter.YYYY_MM_DD_HH_MM_SS_24HOUR));
+//            RetrofitApp.with().load(Api.class).getRandomPictureUrl(request).enqueue(new Callback<RandomPicResponse>() {
+//                @Override
+//                public void onResponse(Call<RandomPicResponse> call, Response<RandomPicResponse> response) {
+//                    System.out.println("000000000000000000000000000000000000000000000000000000");
+//                    if (response.body() == null) {
+//                        return;
+//                    }
+//                    FileUtils.saveImage(response.body().getImgUrl(), fileName, getApplicationContext());
+//                }
+//
+//                @Override
+//                public void onFailure(Call<RandomPicResponse> call, Throwable t) {
+//                    System.out.println("111111111111111111111111111111111111111111111");
+//                }
+//            });
+//        }, 0, 7000, TimeUnit.MILLISECONDS);
     }
 
     @SuppressLint("NewApi")
@@ -136,7 +135,8 @@ public class HomeActivity extends AppCompatActivity {
             R.id.video_demo, R.id.view_pager_demo, R.id.expand_view, R.id.send_email,
             R.id.dialog_demo, R.id.guide_demo, R.id.tcp_demo, R.id.recycler_demo,
             R.id.camera_demo, R.id.restart, R.id.smart_table, R.id.baidu_map_demo,
-            R.id.retrofit_demo, R.id.edit_text_demo, R.id.zxing_demo, R.id.video_record_demo})
+            R.id.retrofit_demo, R.id.edit_text_demo, R.id.zxing_demo, R.id.video_record_demo,
+            R.id.download_app})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.calendar_view:
@@ -256,6 +256,10 @@ public class HomeActivity extends AppCompatActivity {
                     });// 记得放子线程
                 }).start();
                 break;
+            case R.id.download_app:
+                Log.d(TAG, "onViewClicked: ");
+                download();
+                break;
             default:
                 break;
         }
@@ -265,56 +269,6 @@ public class HomeActivity extends AppCompatActivity {
         InputStream is = new FileInputStream(new File(Environment.getExternalStorageDirectory() + "/search.html"));
         byte buffer[] = new byte[1024];
         is.read(buffer, 0, 1024);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 345) {//345选择文件的请求码
-            if (data != null) {
-                if (resultCode == -1) {
-                    if (data.getData() == null) {
-                        return;
-                    }
-                    final Uri uri = data.getData();
-
-                    String baseUrl = "http://192.168.97.108:80/neuroCloud/neuroCloud/unify/upload/";
-                    File file = new File(path + "/reminds.xml");
-
-                    System.out.println("HomeActivity " + "onActivityResult " + "----" + path + "/reminds.xml");
-
-                    Retrofit retrofit = new Retrofit.Builder().baseUrl(baseUrl)
-                            .addConverterFactory(GsonConverterFactory.create()).build();
-
-
-                    RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file);
-                    Map<String, RequestBody> params = new HashMap<>();
-
-                    params.put("file\"; filename=\"" + file.getName() + "", requestBody);
-
-                    Call<String> call = retrofit.create(Api.class).upload(params);
-
-                    call.enqueue(new Callback<String>() {
-                        @Override
-                        public void onResponse(Call<String> call, Response<String> response) {
-                            System.out.println("HomeActivity " + "onResponse " + "----" + "vivi--" + response.message() + "    " + response.body());
-                        }
-
-                        @Override
-                        public void onFailure(Call<String> call, Throwable t) {
-                            t.printStackTrace();
-                            System.out.println("HomeActivity " + "onFailure " + "----" + t.getMessage());
-                        }
-                    });
-                }
-            }
-        }
-        if (requestCode == 0x00) {
-            if (resultCode == RESULT_OK) { // 垃圾巡检——机器的吗
-                String content = data.getStringExtra(Constant.CODED_CONTENT);
-                Log.d(TAG, "onActivityResult: " + content);
-            }
-        }
     }
 
     public interface Api {
@@ -333,6 +287,9 @@ public class HomeActivity extends AppCompatActivity {
         @Multipart
         @POST("neuroCloud/unify/upload")
         Call<String> upload(@PartMap Map<String, RequestBody> params);
+
+        @POST("getRandomPictureUrl")
+        Call<RandomPicResponse> getRandomPictureUrl(@Body GetRandomPictureUrlRequest request);
     }
 
     class ProgressRequestBody extends RequestBody {
@@ -451,6 +408,217 @@ public class HomeActivity extends AppCompatActivity {
             }
         }
         return params;
+    }
+
+    String mSavePath;
+
+    /*
+     * 开启新线程下载apk文件
+     */
+    private void downloadAPK() {
+        new Thread(() -> {
+            try {
+                if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+                    String sdPath = Environment.getExternalStorageDirectory() + "/";
+                    mSavePath = sdPath + "apk";
+
+                    File dir = new File(mSavePath);
+                    if (!dir.exists()) {
+                        dir.mkdir();
+                    }
+                    // 下载文件
+                    HttpURLConnection conn = (HttpURLConnection) new URL("https://jlin-demo.oss-cn-hangzhou.aliyuncs.com/apk/caihe.apk").openConnection();
+                    conn.connect();
+                    InputStream is = conn.getInputStream();
+                    int length = conn.getContentLength();
+
+                    File apkFile = new File(mSavePath, "1234.apk");
+                    FileOutputStream fos = new FileOutputStream(apkFile);
+
+                    int count = 0;
+                    byte[] buffer = new byte[1024];
+                    while (true) {
+                        int numread = is.read(buffer);
+                        count += numread;
+                        // 计算进度条的当前位置
+                        int mProgress = (int) (((float) count / length) * 100);
+                        Log.d(TAG, "run: " + mProgress);
+                        // 下载完成
+                        if (numread < 0) {
+                            break;
+                        }
+                        fos.write(buffer, 0, numread);
+                    }
+                    fos.close();
+                    is.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }).start();
+    }
+
+    private long time = 0L;
+
+    private void download() {
+        NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        //需添加的代码
+        if (manager != null) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                String channelId = "default";
+                String channelName = "默认通知";
+                manager.createNotificationChannel(new NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_HIGH));
+            }
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "default");
+            builder.setProgress(100, 0, false)
+                    .setContentTitle("This is content title")
+                    .setContentText("this is content text")
+                    .setWhen(System.currentTimeMillis())
+                    .setSmallIcon(R.drawable.icon_start)
+                    .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.icon_stop));
+
+            manager.notify(1, builder.build());
+
+            OkHttpUtils.get()
+                    .tag(this)
+                    .url("https://jlin-demo.oss-cn-hangzhou.aliyuncs.com/apk/testDemo.apk")
+                    .build()
+                    .execute(new FileCallBack(Environment.getExternalStorageDirectory() + "/CunKou", "ljxj.apk") {
+                        @Override
+                        public void inProgress(float progress, long total, int id) {
+                            super.inProgress(progress, total, id);
+                            Log.d(TAG, "下载进度 ----> " + 100 * progress);
+                            if (System.currentTimeMillis() - time >= 1000) {
+                                builder.setProgress(100, (int) (100 * progress), false);
+                                manager.notify(1, builder.build());
+                                //下载进度提示
+                                builder.setContentText("下载" + (int) (100 * progress) + "%");
+                            }
+
+                        }
+
+                        @Override
+                        public void onError(okhttp3.Call call, Exception e, int id) {
+                            Log.d(TAG, "---- onError: ");
+                            manager.cancel(1);//设置关闭通知栏
+                        }
+
+                        @Override
+                        public void onResponse(File response, int id) {
+                            Log.d(TAG, "---- onResponse: ");
+                            installApk();
+                        }
+                    });
+        }
+    }
+
+    /**
+     * 安装APK文件
+     */
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void installApk() {
+        if (isHasInstallPermissionWithO()) {
+            install();
+        } else {
+            startInstallPermissionSettingActivity();
+        }
+    }
+
+    private void install() {
+        File apkFile = new File(Environment.getExternalStorageDirectory() + "/CunKou", "ljxj.apk");
+        if (!apkFile.exists()) {
+            Log.d(TAG, "file is not exit: ");
+            return;
+        }
+        Intent intent = new Intent();
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.setAction(Intent.ACTION_VIEW);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            try {
+                Uri contentUri = FileProvider.getUriForFile(getApplicationContext(), getApplicationContext().getPackageName() + ".fileProvider", apkFile);
+                intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                intent.setDataAndType(contentUri, "application/vnd.android.package-archive");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            intent.setDataAndType(Uri.fromFile(apkFile), "application/vnd.android.package-archive");
+        }
+        startActivity(intent);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private boolean isHasInstallPermissionWithO() {
+        return getPackageManager().canRequestPackageInstalls();
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void startInstallPermissionSettingActivity() {
+        Intent intent = new Intent();
+        //获取当前apk包URI，并设置到intent中（这一步设置，可让“未知应用权限设置界面”只显示当前应用的设置项）
+        Uri packageURI = Uri.parse("package:" + getPackageName());
+        intent.setData(packageURI);
+        //设置不同版本跳转未知应用的动作
+        if (Build.VERSION.SDK_INT >= 26) {
+            //intent = new Intent(android.provider.Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES,packageURI);
+            intent.setAction(android.provider.Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES);
+        } else {
+            intent.setAction(android.provider.Settings.ACTION_SECURITY_SETTINGS);
+        }
+        startActivityForResult(intent, 0x01);
+        Toast.makeText(getApplicationContext(), "请打开未知应用安装权限", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 345) {//345选择文件的请求码
+            if (data != null) {
+                if (resultCode == -1) {
+                    if (data.getData() == null) {
+                        return;
+                    }
+                    final Uri uri = data.getData();
+                    String baseUrl = "http://192.168.97.108:80/neuroCloud/neuroCloud/unify/upload/";
+                    File file = new File(path + "/reminds.xml");
+
+                    System.out.println("HomeActivity " + "onActivityResult " + "----" + path + "/reminds.xml");
+
+                    Retrofit retrofit = new Retrofit.Builder().baseUrl(baseUrl)
+                            .addConverterFactory(GsonConverterFactory.create()).build();
+
+
+                    RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file);
+                    Map<String, RequestBody> params = new HashMap<>();
+
+                    params.put("file\"; filename=\"" + file.getName() + "", requestBody);
+
+                    Call<String> call = retrofit.create(Api.class).upload(params);
+
+                    call.enqueue(new Callback<String>() {
+                        @Override
+                        public void onResponse(Call<String> call, Response<String> response) {
+                            System.out.println("HomeActivity " + "onResponse " + "----" + "vivi--" + response.message() + "    " + response.body());
+                        }
+
+                        @Override
+                        public void onFailure(Call<String> call, Throwable t) {
+                            t.printStackTrace();
+                            System.out.println("HomeActivity " + "onFailure " + "----" + t.getMessage());
+                        }
+                    });
+                }
+            }
+        } else if (requestCode == 0x00) {
+            if (resultCode == RESULT_OK) { // 垃圾巡检——机器的吗
+                String content = data.getStringExtra(Constant.CODED_CONTENT);
+                Log.d(TAG, "onActivityResult: " + content);
+            }
+        } else if (requestCode == 0x01) {
+            Log.d(TAG, "onActivityResult: ");
+            installApk();
+        }
     }
 
 }

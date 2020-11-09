@@ -150,4 +150,5 @@
     <string name="zxing_demo">zxing demo</string>
     <string name="send_email">send email</string>
     <string name="video_record_demo">video_record_demo</string>
+    <string name="download_app">download_app</string>
 </resources>
