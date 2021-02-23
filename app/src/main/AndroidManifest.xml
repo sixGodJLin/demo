@@ -13,6 +13,9 @@
     <uses-permission android:name="android.permission.CAMERA" /> <!-- zXinG 震动 -->
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
@@ -32,8 +35,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning,UnusedAttribute">
-        <activity android:name=".VideoRecordActivity"></activity>
+        <activity android:name=".VideoRecordActivity" />
         <activity android:name=".recycler.Recycler2Activity" />
+        <activity android:name=".database.DataBaseActivity" />
+        <activity android:name=".GPSActivity" />
         <activity android:name=".EditTextDemoActivity" />
         <activity android:name=".retrofit.RetrofitActivity" />
         <activity android:name=".baidu.MapActivity" />

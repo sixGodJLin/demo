@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#f8f8f8"
+    tools:context=".database.DataBaseActivity">
+
+
+    <TextView
+        android:id="@+id/add_user"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:layout_marginTop="4sp"
+        android:background="#ffffff"
+        android:gravity="center"
+        android:text="@string/add_user"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/add_record"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:layout_marginTop="4sp"
+        android:background="#ffffff"
+        android:gravity="center"
+        android:text="@string/add_record"
+        android:textSize="20sp" />
+
+</LinearLayout>

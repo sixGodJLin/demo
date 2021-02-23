@@ -27,6 +27,7 @@ import com.example.linj.myapplication.alarm.AlarmActivity;
 import com.example.linj.myapplication.baidu.MapActivity;
 import com.example.linj.myapplication.bean.GetRandomPictureUrlRequest;
 import com.example.linj.myapplication.bean.RandomPicResponse;
+import com.example.linj.myapplication.database.DataBaseActivity;
 import com.example.linj.myapplication.mail.Mail;
 import com.example.linj.myapplication.mail.MailSendUtils;
 import com.example.linj.myapplication.recycler.Recycler2Activity;
@@ -136,7 +137,7 @@ public class HomeActivity extends AppCompatActivity {
             R.id.dialog_demo, R.id.guide_demo, R.id.tcp_demo, R.id.recycler_demo,
             R.id.camera_demo, R.id.restart, R.id.smart_table, R.id.baidu_map_demo,
             R.id.retrofit_demo, R.id.edit_text_demo, R.id.zxing_demo, R.id.video_record_demo,
-            R.id.download_app})
+            R.id.download_app, R.id.gps, R.id.data_base})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.calendar_view:
@@ -259,6 +260,12 @@ public class HomeActivity extends AppCompatActivity {
             case R.id.download_app:
                 Log.d(TAG, "onViewClicked: ");
                 download();
+                break;
+            case R.id.gps:
+                startActivity(new Intent(this, GPSActivity.class));
+                break;
+            case R.id.data_base:
+                startActivity(new Intent(this, DataBaseActivity.class));
                 break;
             default:
                 break;

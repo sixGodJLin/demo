@@ -81,4 +81,15 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
             tvSend.setText(list.get(position));
         }
     }
+
+    interface OnItemClickListener<T> {
+        /**
+         * item点击
+         *
+         * @param view     view
+         * @param position position
+         * @param data     data
+         */
+        void onItemClick(View view, int position, T data);
+    }
 }

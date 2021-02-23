@@ -151,4 +151,9 @@
     <string name="send_email">send email</string>
     <string name="video_record_demo">video_record_demo</string>
     <string name="download_app">download_app</string>
+    <string name="gps">gps</string>
+    <string name="data_base">data_base</string>
+    <string name="add">add</string>
+    <string name="add_record">add_record</string>
+    <string name="add_user">add_user</string>
 </resources>
