@@ -104,6 +104,7 @@ public class HomeActivity extends AppCompatActivity {
 //        loadingDialog.setCanceledOnTouchOutside(false);
 
         String fileName = Environment.getExternalStorageDirectory() + "/capture.png";
+        Log.d(TAG, "onCreate: ");
 
 //        RetrofitApp.inject("http://www.cunkou.co/cunKouApp/cunKouService/");
 //        GetRandomPictureUrlRequest request = new GetRandomPictureUrlRequest();
