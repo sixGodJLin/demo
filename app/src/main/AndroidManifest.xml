@@ -24,6 +24,8 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.MOUNT_FORMAT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
 
     <application
         android:name=".App"
@@ -52,8 +54,8 @@
         <activity android:name=".CameraActivity" />
         <activity android:name=".broadcast.BroadCastActivity" />
         <activity android:name=".recycler.RecyclerActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".HomeActivity" />
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".HomeActivity" android:configChanges="orientation|keyboardHidden|screenSize" />
         <activity android:name=".alarm.AlarmActivity" />
         <activity android:name=".SwipeActivity" />
         <activity android:name=".ScheduleActivity" />

@@ -77,9 +77,7 @@ public class RetrofitApp {
         builder.readTimeout(READ_TIMEOUT, TimeUnit.MILLISECONDS);
         builder.writeTimeout(WRITE_TIMEOUT, TimeUnit.MILLISECONDS);
         if (BuildConfig.DEBUG) {
-            RetrofitLoggingInterceptor loggingInterceptor = new RetrofitLoggingInterceptor();
-            loggingInterceptor.setLevel(RetrofitLoggingInterceptor.Level.BODY);
-            builder.addInterceptor(loggingInterceptor);
+            builder.addInterceptor(new RetrofitLoggingInterceptor());
         }
         builder.addInterceptor(new RetrofitBaseUrlInterceptor());
         if (context != null) {

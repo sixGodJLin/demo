@@ -8,6 +8,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
@@ -89,10 +90,17 @@ public class HomeActivity extends AppCompatActivity {
     LoadingDialog loadingDialog;
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d(TAG, "onStart: ");
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         ButterKnife.bind(this);
+        Log.d(TAG, "onCreate: ");
 
 //        Calendar c = Calendar.getInstance();
 //        mYear = c.get(Calendar.YEAR);
@@ -104,7 +112,6 @@ public class HomeActivity extends AppCompatActivity {
 //        loadingDialog.setCanceledOnTouchOutside(false);
 
         String fileName = Environment.getExternalStorageDirectory() + "/capture.png";
-        Log.d(TAG, "onCreate: ");
 
 //        RetrofitApp.inject("http://www.cunkou.co/cunKouApp/cunKouService/");
 //        GetRandomPictureUrlRequest request = new GetRandomPictureUrlRequest();
@@ -131,6 +138,48 @@ public class HomeActivity extends AppCompatActivity {
 //        }, 0, 7000, TimeUnit.MILLISECONDS);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(TAG, "onResume: ");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(TAG, "onPause: ");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(TAG, "onStop: ");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG, "onDestroy: ");
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.d(TAG, "onSaveInstanceState: ");
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        Log.d(TAG, "onRestoreInstanceState: ");
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        Log.d(TAG, "onConfigurationChanged: ");
+    }
+
     @SuppressLint("NewApi")
     @OnClick({R.id.calendar_view, R.id.service_demo, R.id.alarm_demo, R.id.swipe_demo, R.id.schedule_demo,
             R.id.animate_demo, R.id.draw_demo, R.id.calendar_event, R.id.file_select,
@@ -138,7 +187,7 @@ public class HomeActivity extends AppCompatActivity {
             R.id.dialog_demo, R.id.guide_demo, R.id.tcp_demo, R.id.recycler_demo,
             R.id.camera_demo, R.id.restart, R.id.smart_table, R.id.baidu_map_demo,
             R.id.retrofit_demo, R.id.edit_text_demo, R.id.zxing_demo, R.id.video_record_demo,
-            R.id.download_app, R.id.gps, R.id.data_base})
+            R.id.download_app, R.id.gps, R.id.data_base, R.id.save_file})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.calendar_view:
@@ -267,6 +316,14 @@ public class HomeActivity extends AppCompatActivity {
                 break;
             case R.id.data_base:
                 startActivity(new Intent(this, DataBaseActivity.class));
+                break;
+            case R.id.save_file:
+                Log.d(TAG, "onViewClicked: ------------------------");
+
+                File absoluteFile = new File(Environment.getExternalStorageDirectory() + "/JLin");
+                if (!absoluteFile.exists()) {
+                    absoluteFile.mkdirs();
+                }
                 break;
             default:
                 break;

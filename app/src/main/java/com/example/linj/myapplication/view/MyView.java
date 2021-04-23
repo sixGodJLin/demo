@@ -111,14 +111,12 @@ public class MyView extends View {
         }
         scheduledThreadPoolExecutor.scheduleAtFixedRate(() -> {
             dy1 = origin[index];
-
             setDy(dy1);
-
             index++;
             if (index == 100) {
                 index = 0;
             }
-        }, 100, 20, TimeUnit.MILLISECONDS);
+        }, 100, 1000, TimeUnit.MILLISECONDS);
         isStart = true;
     }
 
