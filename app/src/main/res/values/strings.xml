@@ -157,4 +157,9 @@
     <string name="add_record">add_record</string>
     <string name="add_user">add_user</string>
     <string name="save_file">save_file</string>
+    <string name="insert">增</string>
+    <string name="delete">删</string>
+    <string name="modify">改</string>
+    <string name="query">查</string>
+
 </resources>

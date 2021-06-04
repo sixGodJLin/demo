@@ -1,16 +1,19 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+//GreenDao插件
+apply plugin: 'org.greenrobot.greendao'
 
 android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.example.linj.myapplication"
-        minSdkVersion 26
+        minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -27,6 +30,12 @@ android {
             jcenter()
             maven { url "https://jitpack.io" }
         }
+    }
+    //greendao配置
+    greendao {
+        schemaVersion 1
+        daoPackage 'com.example.linj.greendao.db'// 设置DaoMaster、DaoSession、Dao 包名
+        targetGenDir 'src/main/java'//设置DaoMaster、DaoSession、Dao目录  基本上都是这
     }
     buildToolsVersion '27.0.3'
 }
@@ -72,7 +81,10 @@ dependencies {
     implementation 'com.zhy:okhttputils:2.6.2'
 
     implementation 'com.github.yaming116:UpdateApp:1.0.2'
-
+    //GreenDao
+    implementation 'org.greenrobot:greendao:3.2.2'
+    //添加此行
+    implementation 'com.android.support:multidex:1.0.3'
 }
 repositories {
     mavenCentral()

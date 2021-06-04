@@ -31,6 +31,7 @@ import com.example.linj.myapplication.bean.RandomPicResponse;
 import com.example.linj.myapplication.database.DataBaseActivity;
 import com.example.linj.myapplication.mail.Mail;
 import com.example.linj.myapplication.mail.MailSendUtils;
+import com.example.linj.myapplication.photo.TakeOrPickActivity;
 import com.example.linj.myapplication.recycler.Recycler2Activity;
 import com.example.linj.myapplication.retrofit.RetrofitActivity;
 import com.example.linj.myapplication.service.ServiceActivity;
@@ -187,7 +188,7 @@ public class HomeActivity extends AppCompatActivity {
             R.id.dialog_demo, R.id.guide_demo, R.id.tcp_demo, R.id.recycler_demo,
             R.id.camera_demo, R.id.restart, R.id.smart_table, R.id.baidu_map_demo,
             R.id.retrofit_demo, R.id.edit_text_demo, R.id.zxing_demo, R.id.video_record_demo,
-            R.id.download_app, R.id.gps, R.id.data_base, R.id.save_file})
+            R.id.download_app, R.id.gps, R.id.data_base, R.id.save_file, R.id.photo_pick})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.calendar_view:
@@ -324,6 +325,9 @@ public class HomeActivity extends AppCompatActivity {
                 if (!absoluteFile.exists()) {
                     absoluteFile.mkdirs();
                 }
+                break;
+            case R.id.photo_pick:
+                startActivity(new Intent(this, TakeOrPickActivity.class));
                 break;
             default:
                 break;

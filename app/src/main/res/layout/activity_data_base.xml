@@ -4,29 +4,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#f8f8f8"
+    android:orientation="vertical"
     tools:context=".database.DataBaseActivity">
 
-
     <TextView
-        android:id="@+id/add_user"
+        android:id="@+id/insert"
         android:layout_width="match_parent"
         android:layout_height="50sp"
         android:layout_marginTop="4sp"
         android:background="#ffffff"
         android:gravity="center"
-        android:text="@string/add_user"
+        android:text="@string/insert"
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/add_record"
+        android:id="@+id/delete"
         android:layout_width="match_parent"
         android:layout_height="50sp"
         android:layout_marginTop="4sp"
         android:background="#ffffff"
         android:gravity="center"
-        android:text="@string/add_record"
+        android:text="@string/delete"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/modify"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:layout_marginTop="4sp"
+        android:background="#ffffff"
+        android:gravity="center"
+        android:text="@string/modify"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/query"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:layout_marginTop="4sp"
+        android:background="#ffffff"
+        android:gravity="center"
+        android:text="@string/query"
         android:textSize="20sp" />
 
 </LinearLayout>

@@ -16,7 +16,6 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -37,6 +36,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning,UnusedAttribute">
+        <activity android:name=".photo.photoUtils.AlbumActivity"></activity>
+        <activity android:name=".photo.TakeOrPickActivity" />
         <activity android:name=".VideoRecordActivity" />
         <activity android:name=".recycler.Recycler2Activity" />
         <activity android:name=".database.DataBaseActivity" />
@@ -54,8 +55,10 @@
         <activity android:name=".CameraActivity" />
         <activity android:name=".broadcast.BroadCastActivity" />
         <activity android:name=".recycler.RecyclerActivity" />
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".HomeActivity" android:configChanges="orientation|keyboardHidden|screenSize" />
+        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".HomeActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
         <activity android:name=".alarm.AlarmActivity" />
         <activity android:name=".SwipeActivity" />
         <activity android:name=".ScheduleActivity" />

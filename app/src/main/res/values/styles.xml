@@ -20,4 +20,17 @@
         <item name="colorPrimaryDark">@android:color/white</item>
         <item name="android:windowBackground">@drawable/bg_splash</item>
     </style>
+
+    <style name="Toolbar" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="contentInsetStart">0dp</item>
+        <item name="contentInsetStartWithNavigation">0dp</item>
+        <item name="title">@null</item>
+    </style>
+
+    <!--白色字体/图标的toolbar-->
+    <style name="Toolbar.Light">
+        <item name="colorControlNormal">@android:color/white</item>
+        <item name="actionMenuTextColor">@android:color/white</item>
+        <item name="navigationIcon">@drawable/vector_navigation_back_white</item>
+    </style>
 </resources>
