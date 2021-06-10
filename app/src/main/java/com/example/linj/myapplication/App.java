@@ -11,6 +11,8 @@ import com.example.linj.myapplication.utils.ResourcesUtils;
 import com.example.linj.myapplication.utils.ToastUtils;
 import com.facebook.drawee.backends.pipeline.Fresco;
 
+import cn.jpush.android.api.JPushInterface;
+
 public class App extends Application {
     private DaoMaster.DevOpenHelper mHelper;
     private SQLiteDatabase db;
@@ -24,6 +26,9 @@ public class App extends Application {
         setDatabase();
         ToastUtils.initAppContext(getApplicationContext(), false);
         ResourcesUtils.initAppContext(getApplicationContext());
+
+        JPushInterface.setDebugMode(true);
+        JPushInterface.init(this);
     }
 
     private void setDatabase() {

@@ -74,13 +74,23 @@
         <activity android:name=".DialogDemoActivity" />
         <activity android:name=".GuideActivity" />
         <activity android:name=".tcp.TcpDemoActivity" />
-        <activity android:name=".service.ServiceActivity" />
+        <activity android:name=".myService.ServiceActivity" />
         <activity android:name=".table.SmartTableActivity" />
 
-        <service android:name=".service.MyService1" />
-        <service android:name=".service.MyService2" />
-        <service android:name=".service.ForegroundService" />
+        <service android:name=".myService.MyService1" />
+        <service android:name=".myService.MyService2" />
+        <service android:name=".myService.ForegroundService" />
         <service android:name=".alarm.AlarmService" />
+
+        <service
+            android:name=".services.PushService"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":pushcore">
+            <intent-filter>
+                <action android:name="cn.jiguang.user.service.action" />
+            </intent-filter>
+        </service>
 
         <receiver android:name=".alarm.AlarmReceiver">
             <intent-filter>
@@ -90,6 +100,12 @@
         <receiver android:name=".broadcast.BroadCast">
             <intent-filter>
                 <action android:name="com.JLin.broadcast" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".services.PushReceiver">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
+                <category android:name="com.example.linj.myapplication" />
             </intent-filter>
         </receiver>
 

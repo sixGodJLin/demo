@@ -1,4 +1,4 @@
-package com.example.linj.myapplication.service;
+package com.example.linj.myapplication.myService;
 
 import android.app.Service;
 import android.content.Intent;

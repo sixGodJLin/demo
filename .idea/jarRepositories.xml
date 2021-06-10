@@ -61,5 +61,20 @@
       <option name="name" value="C:\Users\Administrator\AppData\Local\Android\Sdk\extras\android\m2repository" />
       <option name="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/extras/android/m2repository/" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven2" />
+      <option name="name" value="maven2" />
+      <option name="url" value="http://developer.huawei.com/repo/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven3" />
+      <option name="name" value="maven3" />
+      <option name="url" value="https://maven.google.com" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven2" />
+      <option name="name" value="maven2" />
+      <option name="url" value="https://developer.huawei.com/repo/" />
+    </remote-repository>
   </component>
 </project>
